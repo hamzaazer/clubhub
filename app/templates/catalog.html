@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ club_name }} · Creative catalog{% endblock %}
+{% block main_class %}catalog-main{% endblock %}
+{% block content %}
+<div class="catalog-page">
+  <header class="catalog-hero">
+    <p class="eyebrow">THE VALiDO CREATIVE CATALOG</p>
+    <div class="catalog-hero-grid">
+      <h1 id="catalog-heading">Ideas made visible.</h1>
+      <div class="catalog-hero-copy">
+        <p>A visual guide to the skills our community learns, practices, and shares.</p>
+        <a class="btn btn-light" href="{{ url_for('auth.register') }}">Join the club <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="catalog-hero-note"><span>PHOTOGRAPHY · FILM · EDITING · CONTENT</span><span>VALiDO · MASCARA, ALGERIA</span></div>
+  </header>
+
+  <section class="catalog-section" aria-labelledby="catalog-section-heading">
+    <div class="catalog-section-heading">
+      <div><p class="eyebrow">01 / EXPLORE</p><h2 id="catalog-section-heading">Four creative tracks. One community.</h2></div>
+      <p>Start with the craft that interests you. Learn by making, then share what you discover.</p>
+    </div>
+
+    <div class="catalog-grid">
+      <article class="catalog-card">
+        <div class="catalog-card-image"><img src="{{ url_for('static', filename='catalog/photography.jpg') }}" alt="Photographer holding a camera in a studio" loading="lazy"><span class="catalog-card-number" dir="ltr">01</span></div>
+        <div class="catalog-card-body"><p class="catalog-card-kicker">CAPTURE · STILL IMAGE</p><h3>Photography</h3><p>Learn to notice light, compose with intention, and tell stories through still images.</p><a class="catalog-card-link" href="{{ url_for('auth.register') }}">Explore photography <span aria-hidden="true">↗</span></a><a class="catalog-credit" href="https://unsplash.com/photos/woman-holding-a-professional-camera-in-a-studio-Rif_kPfCoGs" target="_blank" rel="noopener noreferrer">Photo by Vitaly Gariev on Unsplash</a></div>
+      </article>
+
+      <article class="catalog-card">
+        <div class="catalog-card-image"><img src="{{ url_for('static', filename='catalog/filmmaking.jpg') }}" alt="Film camera, lenses, and monitors in a creative workspace" loading="lazy"><span class="catalog-card-number" dir="ltr">02</span></div>
+        <div class="catalog-card-body"><p class="catalog-card-kicker">MOTION · STORY</p><h3>Film and video</h3><p>Plan a shoot, frame the action, and turn moving moments into stories.</p><a class="catalog-card-link" href="{{ url_for('auth.register') }}">Explore filmmaking <span aria-hidden="true">↗</span></a><a class="catalog-credit" href="https://unsplash.com/photos/filmmakers-setup-with-cameras-lenses-and-monitors-na8R4tWL73I" target="_blank" rel="noopener noreferrer">Photo by Jakub Żerdzicki on Unsplash</a></div>
+      </article>
+
+      <article class="catalog-card">
+        <div class="catalog-card-image"><img src="{{ url_for('static', filename='catalog/editing.jpg') }}" alt="Editor working at a video editing workstation" loading="lazy"><span class="catalog-card-number" dir="ltr">03</span></div>
+        <div class="catalog-card-body"><p class="catalog-card-kicker">COLOR · SOUND · PACE</p><h3>Editing and post-production</h3><p>Refine color, sound, and pacing until every frame feels right.</p><a class="catalog-card-link" href="{{ url_for('auth.register') }}">Explore editing <span aria-hidden="true">↗</span></a><a class="catalog-credit" href="https://unsplash.com/photos/a-person-edits-video-at-a-modern-computer-setup-xGklNeRfBK8" target="_blank" rel="noopener noreferrer">Photo by TourBox on Unsplash</a></div>
+      </article>
+
+      <article class="catalog-card">
+        <div class="catalog-card-image"><img src="{{ url_for('static', filename='catalog/content-creation.jpg') }}" alt="Creator recording a video on a smartphone" loading="lazy"><span class="catalog-card-number" dir="ltr">04</span></div>
+        <div class="catalog-card-body"><p class="catalog-card-kicker">IDEAS · COMMUNITY</p><h3>Digital content</h3><p>Create thoughtful, social-ready stories for people, projects, and local culture.</p><a class="catalog-card-link" href="{{ url_for('auth.register') }}">Explore content creation <span aria-hidden="true">↗</span></a><a class="catalog-credit" href="https://unsplash.com/photos/man-sitting-on-couch-recording-video-on-phone--XElUs-xs2A" target="_blank" rel="noopener noreferrer">Photo by Vitaly Gariev on Unsplash</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="catalog-cta">
+    <div><p class="eyebrow">MAKE YOUR FIRST FRAME</p><h2>Bring your curiosity.<br>We’ll make something together.</h2></div>
+    <a class="btn btn-light" href="{{ url_for('auth.register') }}">Join VALiDO <span aria-hidden="true">↗</span></a>
+  </section>
+</div>
+{% endblock %}

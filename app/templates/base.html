@@ -12,6 +12,7 @@
   <label for="nav-toggle" class="burger" aria-hidden="true"><span></span></label>
   <nav>
   {% if current_user.is_authenticated %}
+    <a href="{{ url_for('auth.catalog') }}">Catalog</a>
     {% if current_user.role == 'member' %}
       <a href="{{ url_for('member.dashboard') }}">Home</a>
       <a href="{{ url_for('member.tasks') }}">Tasks</a>
@@ -31,6 +32,7 @@
     <form method="post" action="{{ url_for('auth.logout') }}" class="inline">{{ csrf() }}<button class="linkbtn">Log out</button></form>
   {% else %}
     <a href="{{ url_for('auth.index') }}#about">About</a>
+    <a href="{{ url_for('auth.catalog') }}">Catalog</a>
     <a href="{{ url_for('auth.index') }}#events">Events</a>
     <a href="{{ url_for('auth.index') }}#leaders">Leaders</a>
     <a href="{{ url_for('auth.index') }}#partners">Partners</a>
