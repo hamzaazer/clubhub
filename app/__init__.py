@@ -29,6 +29,10 @@ def create_app():
     db_url = os.environ.get("DATABASE_URL") or "sqlite:///club.db"
     if db_url.startswith("postgres://"):
         db_url = db_url.replace("postgres://", "postgresql://", 1)
+    if prod and not db_url.startswith(("postgresql://", "postgresql+psycopg2://")):
+        raise RuntimeError(
+            "DATABASE_URL must be set to the Supabase PostgreSQL connection string in production"
+        )
 
     app.config.update(
         SECRET_KEY=secret or "dev-only-change-me",
@@ -104,7 +108,8 @@ def create_app():
 
     with app.app_context():
         db.create_all()
-        if os.environ.get("SUPABASE_ENABLE_RLS", "").lower() in ("1", "true", "yes"):
+        rls_enabled = os.environ.get("SUPABASE_ENABLE_RLS", "").lower() in ("1", "true", "yes")
+        if rls_enabled and db.engine.dialect.name == "postgresql":
             # Flask uses the trusted database connection; the table owner bypasses RLS.
             # Enabling RLS with no client policies blocks direct Data API access.
             preparer = db.engine.dialect.identifier_preparer
@@ -112,6 +117,8 @@ def create_app():
                 for table in db.metadata.sorted_tables:
                     table_name = preparer.quote(table.name)
                     connection.execute(text(f"ALTER TABLE public.{table_name} ENABLE ROW LEVEL SECURITY"))
+        elif rls_enabled:
+            app.logger.warning("SUPABASE_ENABLE_RLS ignored because DATABASE_URL is not PostgreSQL")
         user_columns = {column["name"] for column in inspect(db.engine).get_columns("users")}
         new_columns = {
             "member_title": "VARCHAR(80) NOT NULL DEFAULT ''",
