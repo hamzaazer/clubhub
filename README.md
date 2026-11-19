@@ -74,6 +74,45 @@ intended client access before enabling it.
 Render's free service may sleep after inactivity. Supabase database availability and limits depend on the
 selected Supabase plan; check the project dashboard for current usage and backup options.
 
+### Deploy on PythonAnywhere
+ClubHub's `wsgi.py` exports both `app` and `application`, so it can be loaded by PythonAnywhere's WSGI
+server. Use a **paid PythonAnywhere account** to keep the existing Supabase PostgreSQL database; free
+accounts cannot connect to external databases.
+
+1. In a PythonAnywhere Bash console, clone this repository to `~/clubhub`, create a virtualenv with the
+   Python version selected for the web app, and install dependencies:
+
+   ```bash
+   git clone https://github.com/hamzaazer/clubhub.git ~/clubhub
+   mkvirtualenv --python=/usr/bin/python3.12 clubhub-venv
+   workon clubhub-venv
+   pip install -r ~/clubhub/requirements.txt
+   ```
+
+2. In the **Web** tab, create a **Manual configuration** web app using the same Python version and set
+   its virtualenv to `~/.virtualenvs/clubhub-venv`.
+3. In the web app's WSGI file, set the project path and secrets before importing the WSGI application:
+
+   ```python
+   import os
+   import sys
+
+   project_home = "/home/YOUR_USERNAME/clubhub"
+   if project_home not in sys.path:
+       sys.path.insert(0, project_home)
+
+   os.environ["FLASK_ENV"] = "production"
+   os.environ["SECRET_KEY"] = "GENERATE_A_PRIVATE_RANDOM_VALUE"
+   os.environ["DATABASE_URL"] = "YOUR_SUPABASE_SESSION_POOLER_URI"
+   os.environ["SUPABASE_ENABLE_RLS"] = "true"
+
+   from wsgi import application
+   ```
+
+   Replace the placeholders in the PythonAnywhere WSGI editor only; never commit real credentials.
+4. Set the source-code and working-directory paths to `/home/YOUR_USERNAME/clubhub`, save the WSGI file,
+   and reload the web app. Verify `/healthz`, then sign in and confirm the existing Supabase records load.
+
 ### Persistence checklist
 - Accounts, projects, tasks, marks, notes, leaderboard settings, and photos live in Supabase Postgres.
 - Back up using Supabase's dashboard backup options or `pg_dump` over a direct connection. The Session
