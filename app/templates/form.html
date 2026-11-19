@@ -4,6 +4,7 @@
 <section class="card narrow">
   <h1>{{ title }}</h1>
   {% if intro %}<p class="muted">{{ intro }}</p>{% endif %}
+  {% if current_photo %}<div class="field"><label>Current photo</label><img class="form-preview" src="{{ current_photo }}" alt="Current photo"></div>{% endif %}
   <form method="post"{% if has_file %} enctype="multipart/form-data"{% endif %}>
     {{ form.hidden_tag() }}
     {% for f in form if f.type != 'CSRFTokenField' %}{{ field(f) }}{% endfor %}

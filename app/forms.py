@@ -1,10 +1,10 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileField, FileRequired
 from sqlalchemy import func
-from wtforms import (BooleanField, DateField, FloatField, PasswordField, SelectField,
+from wtforms import (BooleanField, DateField, FloatField, PasswordField, SelectField, TimeField,
                      SelectMultipleField, StringField, TextAreaField, widgets)
 from wtforms.validators import (DataRequired, Email, EqualTo, Length, NumberRange, Optional,
-                                Regexp, ValidationError)
+                                Regexp, URL, ValidationError)
 
 from .models import ClubRole, PERMISSIONS, User
 from .locations import algeria_locations, wilaya_code
@@ -140,3 +140,49 @@ class SettingsForm(FlaskForm):
 
 class ClubRoleForm(FlaskForm):
     name = StringField("Role name", filters=strip, validators=[DataRequired(), Length(2, 80)])
+
+
+class LeaderForm(FlaskForm):
+    name = StringField("Name", filters=strip, validators=[DataRequired(), Length(2, 120)])
+    title = StringField("Role", filters=strip, validators=[DataRequired(), Length(2, 120)])
+    photo = FileField("Portrait photo", validators=[IMAGE], description="Square portrait works best.")
+    remove_photo = BooleanField("Remove current photo")
+
+
+class PartnershipForm(FlaskForm):
+    name = StringField("Organization or creator", filters=strip, validators=[DataRequired(), Length(2, 120)])
+    description = StringField("Short description", filters=strip, validators=[Optional(), Length(max=300)])
+    website = StringField("Website link", filters=strip, validators=[Optional(), URL(schemes=["http", "https"])])
+    photo = FileField("Logo or photo", validators=[IMAGE])
+    remove_photo = BooleanField("Remove current image")
+
+
+class CommunityEventForm(FlaskForm):
+    title = StringField("Event title", filters=strip, validators=[DataRequired(), Length(3, 150)])
+    description = TextAreaField("Description", filters=strip, validators=[Optional(), Length(max=3000)])
+    event_date = DateField("Event date", validators=[DataRequired()])
+    event_time = TimeField("Start time (optional)", validators=[Optional()])
+    location = StringField("Location", filters=strip, validators=[Optional(), Length(max=180)])
+    link = StringField("Event link (optional)", filters=strip,
+                       validators=[Optional(), URL(schemes=["http", "https"])],
+                       description="Leave blank if the event has no registration or information page.")
+    photo = FileField("Event photo or poster", validators=[IMAGE])
+    remove_photo = BooleanField("Remove current image")
+
+
+class GalleryPhotoForm(FlaskForm):
+    caption = StringField("Caption", filters=strip, validators=[DataRequired(), Length(2, 180)])
+    link = StringField("Photo link (optional)", filters=strip, validators=[Optional(), URL(schemes=["http", "https"])])
+    photo = FileField("Photo", validators=[IMAGE])
+
+
+class HomepageContentForm(FlaskForm):
+    hero_heading = StringField("Hero headline", filters=strip, validators=[DataRequired(), Length(5, 120)])
+    hero_copy = TextAreaField("Hero introduction", filters=strip, validators=[DataRequired(), Length(20, 400)])
+    about_heading = StringField("About heading", filters=strip, validators=[DataRequired(), Length(3, 100)])
+    about_copy = TextAreaField("About the club", filters=strip, validators=[DataRequired(), Length(20, 1500)])
+    community_copy = TextAreaField("Community introduction", filters=strip, validators=[Optional(), Length(max=1000)])
+    instagram = StringField("Instagram URL", filters=strip, validators=[Optional(), URL(schemes=["http", "https"])])
+    facebook = StringField("Facebook URL", filters=strip, validators=[Optional(), URL(schemes=["http", "https"])])
+    youtube = StringField("YouTube URL", filters=strip, validators=[Optional(), URL(schemes=["http", "https"])])
+    tiktok = StringField("TikTok URL", filters=strip, validators=[Optional(), URL(schemes=["http", "https"])])

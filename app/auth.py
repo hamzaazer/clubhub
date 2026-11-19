@@ -3,10 +3,12 @@ from flask import (Blueprint, Response, abort, flash, redirect, render_template,
 from flask_login import current_user, login_required, login_user, logout_user
 from sqlalchemy import func
 from sqlalchemy.orm import undefer
+from datetime import date
 
 from . import db, limiter
 from .forms import LoginForm, RegisterForm, configure_location_choices
-from .models import ClubRole, User
+from .models import (ClubRole, CommunityEvent, GalleryPhoto, Leader, Partnership, User,
+                    get_setting)
 from .utils import parse_equipment, process_image
 
 bp = Blueprint("auth", __name__)
@@ -16,7 +18,19 @@ bp = Blueprint("auth", __name__)
 def index():
     if current_user.is_authenticated:
         return redirect(url_for("member.dashboard" if current_user.role == "member" else "admin.dashboard"))
-    return render_template("index.html")
+    content = {
+        "hero_heading": get_setting("homepage_hero_heading", "Capture today. Create tomorrow."),
+        "hero_copy": get_setting("homepage_hero_copy", "A local home for photographers, filmmakers, editors and curious creators in Mascara, Algeria."),
+        "about_heading": get_setting("homepage_about_heading", "A club for people who see stories everywhere."),
+        "about_copy": get_setting("homepage_about_copy", "VALiDO brings creative people together to learn, make and share. Join a photo walk, try a new technique, or make your first short film alongside a welcoming community."),
+        "community_copy": get_setting("homepage_community_copy", "From first-time photographers to experienced creators, there is room to learn, contribute and make something together."),
+    }
+    events = CommunityEvent.query.filter(CommunityEvent.event_date >= date.today()).order_by(
+        CommunityEvent.event_date, CommunityEvent.id).all()
+    return render_template("index.html", content=content, events=events,
+                           leaders=Leader.query.order_by(Leader.sort_order, Leader.id).all(),
+                           partnerships=Partnership.query.order_by(Partnership.sort_order, Partnership.id).all(),
+                           gallery=GalleryPhoto.query.order_by(GalleryPhoto.sort_order, GalleryPhoto.id).all())
 
 
 @bp.route("/healthz")

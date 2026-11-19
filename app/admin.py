@@ -1,15 +1,18 @@
 import secrets
+from datetime import date
 
-from flask import Blueprint, abort, flash, jsonify, redirect, render_template, request, url_for
+from flask import Blueprint, Response, abort, flash, jsonify, redirect, render_template, request, url_for
 from flask_login import current_user
 from sqlalchemy import func
 
 from . import db
-from .forms import CriterionForm, ProjectForm, TaskForm
+from .forms import (CommunityEventForm, CriterionForm, GalleryPhotoForm, HomepageContentForm,
+                    LeaderForm, PartnershipForm, ProjectForm, TaskForm)
 from .locations import algeria_locations, wilaya_code
 from .models import (Criterion, PendingChange, Project, ProjectMember, Score, Task, TaskAssignment,
-                     ClubRole, GlobalCriterion, User, leaderboard, member_rank, set_setting)
-from .utils import perm_required, role_required
+                     ClubRole, CommunityEvent, GalleryPhoto, GlobalCriterion, Leader, Partnership,
+                     User, get_setting, leaderboard, member_rank, set_setting)
+from .utils import perm_required, process_image, process_logo, role_required
 
 bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -372,6 +375,306 @@ def task_delete(tid):
     db.session.commit()
     flash("Task deleted.", "success")
     return redirect(url_for("admin.tasks"))
+
+
+# ---------- public community site ----------
+@bp.route("/community")
+@perm_required()
+def community_site():
+    content = {
+        "hero_heading": get_setting("homepage_hero_heading", "Capture today. Create tomorrow."),
+        "hero_copy": get_setting("homepage_hero_copy", "A local home for photographers, filmmakers, editors and curious creators in Mascara, Algeria."),
+        "about_heading": get_setting("homepage_about_heading", "A club for people who see stories everywhere."),
+        "about_copy": get_setting("homepage_about_copy", "VALiDO brings creative people together to learn, make and share. Join a photo walk, try a new technique, or make your first short film alongside a welcoming community."),
+        "community_copy": get_setting("homepage_community_copy", "From first-time photographers to experienced creators, there is room to learn, contribute and make something together."),
+        "instagram": get_setting("homepage_instagram", ""),
+        "facebook": get_setting("homepage_facebook", ""),
+        "youtube": get_setting("homepage_youtube", ""),
+        "tiktok": get_setting("homepage_tiktok", ""),
+    }
+    content_form = HomepageContentForm(data=content)
+    return render_template(
+        "admin_community.html", content_form=content_form,
+        leader_form=LeaderForm(), partnership_form=PartnershipForm(),
+        event_form=CommunityEventForm(), gallery_form=GalleryPhotoForm(),
+        leaders=Leader.query.order_by(Leader.sort_order, Leader.id).all(),
+        partnerships=Partnership.query.order_by(Partnership.sort_order, Partnership.id).all(),
+        events=CommunityEvent.query.order_by(CommunityEvent.event_date, CommunityEvent.id).all(),
+        gallery=GalleryPhoto.query.order_by(GalleryPhoto.sort_order, GalleryPhoto.id).all(),
+    )
+
+
+@bp.post("/community/content")
+@perm_required()
+def community_content_save():
+    form = HomepageContentForm()
+    if form.validate_on_submit():
+        for field in ("hero_heading", "hero_copy", "about_heading", "about_copy", "community_copy",
+                      "instagram", "facebook", "youtube", "tiktok"):
+            set_setting("homepage_" + field, getattr(form, field).data or "")
+        flash("Homepage content saved.", "success")
+    else:
+        flash(first_error(form), "error")
+    return redirect(url_for("admin.community_site"))
+
+
+def _photo_upload(form, keep_square=True):
+    upload = form.photo.data
+    if not upload or not getattr(upload, "filename", ""):
+        return None, None
+    data = process_image(upload) if keep_square else process_logo(upload)
+    return (data, "image/jpeg") if keep_square else (data, "image/png")
+
+
+@bp.post("/community/leaders")
+@perm_required()
+def leader_add():
+    form = LeaderForm()
+    if form.validate_on_submit():
+        photo, photo_type = _photo_upload(form)
+        if not form.photo.data or not form.photo.data.filename:
+            form.photo.errors.append("Add a portrait photo for this leader.")
+        elif photo is None:
+            form.photo.errors.append("We couldn't read that photo.")
+        else:
+            last = db.session.query(db.func.max(Leader.sort_order)).scalar() or 0
+            db.session.add(Leader(name=form.name.data, title=form.title.data, photo_data=photo, has_photo=True,
+                                  photo_type=photo_type or "image/jpeg", sort_order=last + 1))
+            db.session.commit()
+            flash("Leader added.", "success")
+            return redirect(url_for("admin.community_site"))
+    flash(first_error(form), "error")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.route("/community/leaders/<int:leader_id>", methods=["GET", "POST"])
+@perm_required()
+def leader_edit(leader_id):
+    leader = db.get_or_404(Leader, leader_id)
+    form = LeaderForm(obj=leader)
+    if form.validate_on_submit():
+        photo, photo_type = _photo_upload(form)
+        if form.photo.data and form.photo.data.filename and photo is None:
+            form.photo.errors.append("We couldn't read that photo.")
+        else:
+            leader.name, leader.title = form.name.data, form.title.data
+            if photo:
+                leader.photo_data, leader.photo_type, leader.has_photo = photo, photo_type, True
+                leader.photo_version = (leader.photo_version or 0) + 1
+            elif form.remove_photo.data:
+                leader.photo_data, leader.photo_type, leader.has_photo = None, "image/jpeg", False
+                leader.photo_version = (leader.photo_version or 0) + 1
+            db.session.commit()
+            flash("Leader updated.", "success")
+            return redirect(url_for("admin.community_site"))
+    return render_template("form.html", title="Edit leader", form=form, submit="Save changes",
+                           has_file=True, back=url_for("admin.community_site"),
+                           current_photo=url_for("admin.leader_photo", leader_id=leader.id,
+                                                 v=leader.photo_version) if leader.has_photo else "")
+
+
+@bp.post("/community/leaders/<int:leader_id>/delete")
+@perm_required()
+def leader_delete(leader_id):
+    db.session.delete(db.get_or_404(Leader, leader_id))
+    db.session.commit()
+    flash("Leader removed.", "success")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.post("/community/leaders/<int:leader_id>/move/<direction>")
+@perm_required()
+def leader_move(leader_id, direction):
+    leader = db.get_or_404(Leader, leader_id)
+    leaders = Leader.query.order_by(Leader.sort_order, Leader.id).all()
+    index = leaders.index(leader)
+    target_index = index - 1 if direction == "up" else index + 1 if direction == "down" else index
+    if 0 <= target_index < len(leaders) and target_index != index:
+        neighbor = leaders[target_index]
+        leader.sort_order, neighbor.sort_order = neighbor.sort_order, leader.sort_order
+        db.session.commit()
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.get("/community/leaders/<int:leader_id>/photo")
+def leader_photo(leader_id):
+    leader = db.get_or_404(Leader, leader_id)
+    if not leader.has_photo or not leader.photo_data:
+        abort(404)
+    return Response(leader.photo_data, mimetype=leader.photo_type or "image/jpeg",
+                    headers={"Cache-Control": "public, max-age=86400"})
+
+
+@bp.post("/community/partnerships")
+@perm_required()
+def partnership_add():
+    form = PartnershipForm()
+    if form.validate_on_submit():
+        photo, photo_type = _photo_upload(form, keep_square=False)
+        if form.photo.data and form.photo.data.filename and photo is None:
+            form.photo.errors.append("We couldn't read that logo or photo.")
+        else:
+            last = db.session.query(db.func.max(Partnership.sort_order)).scalar() or 0
+            db.session.add(Partnership(name=form.name.data, description=form.description.data or "",
+                                       website=form.website.data or "", photo_data=photo,
+                                       has_photo=bool(photo),
+                                       photo_type=photo_type or "image/png", sort_order=last + 1))
+            db.session.commit()
+            flash("Collaboration added.", "success")
+            return redirect(url_for("admin.community_site"))
+    flash(first_error(form), "error")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.route("/community/partnerships/<int:partnership_id>", methods=["GET", "POST"])
+@perm_required()
+def partnership_edit(partnership_id):
+    partnership = db.get_or_404(Partnership, partnership_id)
+    form = PartnershipForm(obj=partnership)
+    if form.validate_on_submit():
+        photo, photo_type = _photo_upload(form, keep_square=False)
+        if form.photo.data and form.photo.data.filename and photo is None:
+            form.photo.errors.append("We couldn't read that logo or photo.")
+        else:
+            partnership.name, partnership.description = form.name.data, form.description.data or ""
+            partnership.website = form.website.data or ""
+            if photo:
+                partnership.photo_data, partnership.photo_type, partnership.has_photo = photo, photo_type, True
+                partnership.photo_version = (partnership.photo_version or 0) + 1
+            elif form.remove_photo.data:
+                partnership.photo_data, partnership.photo_type, partnership.has_photo = None, "image/png", False
+                partnership.photo_version = (partnership.photo_version or 0) + 1
+            db.session.commit()
+            flash("Collaboration updated.", "success")
+            return redirect(url_for("admin.community_site"))
+    return render_template("form.html", title="Edit collaboration", form=form, submit="Save changes",
+                           has_file=True, back=url_for("admin.community_site"),
+                           current_photo=url_for("admin.partnership_photo", partnership_id=partnership.id,
+                                                 v=partnership.photo_version) if partnership.has_photo else "")
+
+
+@bp.post("/community/partnerships/<int:partnership_id>/delete")
+@perm_required()
+def partnership_delete(partnership_id):
+    db.session.delete(db.get_or_404(Partnership, partnership_id))
+    db.session.commit()
+    flash("Collaboration removed.", "success")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.get("/community/partnerships/<int:partnership_id>/photo")
+def partnership_photo(partnership_id):
+    partnership = db.get_or_404(Partnership, partnership_id)
+    if not partnership.has_photo or not partnership.photo_data:
+        abort(404)
+    return Response(partnership.photo_data, mimetype=partnership.photo_type or "image/png",
+                    headers={"Cache-Control": "public, max-age=86400"})
+
+
+@bp.post("/community/events")
+@perm_required()
+def event_add():
+    form = CommunityEventForm()
+    if form.validate_on_submit():
+        photo, photo_type = _photo_upload(form)
+        if form.photo.data and form.photo.data.filename and photo is None:
+            form.photo.errors.append("We couldn't read that event photo.")
+        else:
+            db.session.add(CommunityEvent(title=form.title.data, description=form.description.data or "",
+                                          event_date=form.event_date.data, event_time=form.event_time.data,
+                                          location=form.location.data or "",
+                                          link=form.link.data or "", photo_data=photo, has_photo=bool(photo),
+                                          photo_type=photo_type or "image/jpeg"))
+            db.session.commit()
+            flash("Event added.", "success")
+            return redirect(url_for("admin.community_site"))
+    flash(first_error(form), "error")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.route("/community/events/<int:event_id>", methods=["GET", "POST"])
+@perm_required()
+def event_edit(event_id):
+    event = db.get_or_404(CommunityEvent, event_id)
+    form = CommunityEventForm(obj=event)
+    if form.validate_on_submit():
+        photo, photo_type = _photo_upload(form)
+        if form.photo.data and form.photo.data.filename and photo is None:
+            form.photo.errors.append("We couldn't read that event photo.")
+        else:
+            event.title, event.description = form.title.data, form.description.data or ""
+            event.event_date, event.event_time = form.event_date.data, form.event_time.data
+            event.location, event.link = form.location.data or "", form.link.data or ""
+            if photo:
+                event.photo_data, event.photo_type, event.has_photo = photo, photo_type, True
+                event.photo_version = (event.photo_version or 0) + 1
+            elif form.remove_photo.data:
+                event.photo_data, event.photo_type, event.has_photo = None, "image/jpeg", False
+                event.photo_version = (event.photo_version or 0) + 1
+            db.session.commit()
+            flash("Event updated.", "success")
+            return redirect(url_for("admin.community_site"))
+    return render_template("form.html", title="Edit event", form=form, submit="Save changes",
+                           has_file=True, back=url_for("admin.community_site"),
+                           current_photo=url_for("admin.event_photo", event_id=event.id,
+                                                 v=event.photo_version) if event.has_photo else "")
+
+
+@bp.post("/community/events/<int:event_id>/delete")
+@perm_required()
+def event_delete(event_id):
+    db.session.delete(db.get_or_404(CommunityEvent, event_id))
+    db.session.commit()
+    flash("Event removed.", "success")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.get("/community/events/<int:event_id>/photo")
+def event_photo(event_id):
+    event = db.get_or_404(CommunityEvent, event_id)
+    if not event.has_photo or not event.photo_data:
+        abort(404)
+    return Response(event.photo_data, mimetype=event.photo_type or "image/jpeg",
+                    headers={"Cache-Control": "public, max-age=86400"})
+
+
+@bp.post("/community/gallery")
+@perm_required()
+def gallery_add():
+    form = GalleryPhotoForm()
+    if form.validate_on_submit():
+        photo, photo_type = _photo_upload(form)
+        if not form.photo.data or not form.photo.data.filename:
+            form.photo.errors.append("Choose a photo.")
+        elif photo is None:
+            form.photo.errors.append("We couldn't read that photo.")
+        else:
+            last = db.session.query(db.func.max(GalleryPhoto.sort_order)).scalar() or 0
+            db.session.add(GalleryPhoto(caption=form.caption.data, link=form.link.data or "",
+                                        photo_data=photo, has_photo=True, photo_type=photo_type, sort_order=last + 1))
+            db.session.commit()
+            flash("Gallery photo added.", "success")
+            return redirect(url_for("admin.community_site"))
+    flash(first_error(form), "error")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.post("/community/gallery/<int:photo_id>/delete")
+@perm_required()
+def gallery_delete(photo_id):
+    db.session.delete(db.get_or_404(GalleryPhoto, photo_id))
+    db.session.commit()
+    flash("Gallery photo removed.", "success")
+    return redirect(url_for("admin.community_site"))
+
+
+@bp.get("/community/gallery/<int:photo_id>/photo")
+def gallery_photo(photo_id):
+    photo = db.get_or_404(GalleryPhoto, photo_id)
+    if not photo.has_photo or not photo.photo_data:
+        abort(404)
+    return Response(photo.photo_data, mimetype=photo.photo_type or "image/jpeg",
+                    headers={"Cache-Control": "public, max-age=86400"})
 
 
 # ---------- leaderboard ----------

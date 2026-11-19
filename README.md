@@ -87,7 +87,8 @@ Push to GitHub; Render redeploys. `create_all()` only creates *missing tables*. 
 list, plus place of work and Algerian wilaya/commune fields. Owners manage club roles; members choose from
 those roles and select their wilaya and commune when joining or editing their profile. Admins can filter
 the member list by club role. Owners can change the club name and logo in Settings. Owners manage global scoring criteria in Settings; those criteria apply to
-current projects and are copied into future projects. The bundled location data follows the 2026 administrative
+current projects and are copied into future projects. Admins can manage homepage copy, events, leaders, collaborations,
+and community photos from Website in the admin menu. The bundled location data follows the 2026 administrative
 division and is distributed under MIT from [Algeria-wilayas](https://github.com/islam-re/Algeria-wilayas).
 For other schema changes, use Flask-Migrate or an `ALTER TABLE` statement.
 

@@ -1,0 +1,61 @@
+{% extends "base.html" %}{% from "_m.html" import field, post %}
+{% block title %}Website content · {{ club_name }}{% endblock %}
+{% block content %}
+<div class="row between"><div><p class="eyebrow">PUBLIC WEBSITE</p><h1>Homepage content</h1><p class="muted">Update the story visitors see before they join.</p></div><a class="btn ghost" href="{{ url_for('auth.index') }}" target="_blank" rel="noopener">View website ↗</a></div>
+
+<section class="card">
+  <h2>Homepage story and social links</h2>
+  <form method="post" action="{{ url_for('admin.community_content_save') }}">
+    {{ content_form.hidden_tag() }}
+    {{ field(content_form.hero_heading) }}{{ field(content_form.hero_copy) }}
+    {{ field(content_form.about_heading) }}{{ field(content_form.about_copy) }}{{ field(content_form.community_copy) }}
+    <div class="admin-social-fields"><h3>Social media</h3><div class="admin-social-grid">{{ field(content_form.instagram) }}{{ field(content_form.facebook) }}{{ field(content_form.youtube) }}{{ field(content_form.tiktok) }}</div></div>
+    <div class="actions"><button class="btn">Save website content</button></div>
+  </form>
+</section>
+
+<section class="card">
+  <div class="row between"><div><h2>Meet the leaders</h2><p class="muted">Add portraits, set each person’s role, and arrange the display order.</p></div></div>
+  {% for leader in leaders %}<div class="admin-content-row">
+    {% if leader.has_photo %}<img class="admin-thumb" src="{{ url_for('admin.leader_photo', leader_id=leader.id, v=leader.photo_version) }}" alt="">{% else %}<span class="admin-thumb admin-thumb-empty">{{ leader.name[:1]|upper }}</span>{% endif %}
+    <span class="admin-row-copy"><b>{{ leader.name }}</b><small>{{ leader.title }}</small></span>
+    <span class="actions admin-row-actions">{{ post(url_for('admin.leader_move', leader_id=leader.id, direction='up'), 'Move up', 'btn small ghost') }}{{ post(url_for('admin.leader_move', leader_id=leader.id, direction='down'), 'Move down', 'btn small ghost') }}<a class="btn small ghost" href="{{ url_for('admin.leader_edit', leader_id=leader.id) }}">Edit</a>{{ post(url_for('admin.leader_delete', leader_id=leader.id), 'Remove', 'btn small danger', 'Remove this leader from the homepage?') }}</span>
+  </div>{% else %}<p class="empty-note">No leaders added yet.</p>{% endfor %}
+  <form class="admin-add-form" method="post" action="{{ url_for('admin.leader_add') }}" enctype="multipart/form-data">
+    {{ leader_form.hidden_tag() }}<h3>Add a leader</h3><div class="admin-form-grid">{{ field(leader_form.name) }}{{ field(leader_form.title) }}{{ field(leader_form.photo) }}</div><div class="actions"><button class="btn">Add leader</button></div>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Collaborations &amp; partnerships</h2><p class="muted">Feature organizations, brands, venues and creators.</p>
+  {% for partner in partnerships %}<div class="admin-content-row">
+    {% if partner.has_photo %}<img class="admin-thumb partner-thumb" src="{{ url_for('admin.partnership_photo', partnership_id=partner.id, v=partner.photo_version) }}" alt="">{% else %}<span class="admin-thumb admin-thumb-empty">{{ partner.name[:1]|upper }}</span>{% endif %}
+    <span class="admin-row-copy"><b>{{ partner.name }}</b><small>{{ partner.description or partner.website or 'No description' }}</small></span><span class="actions admin-row-actions"><a class="btn small ghost" href="{{ url_for('admin.partnership_edit', partnership_id=partner.id) }}">Edit</a>{{ post(url_for('admin.partnership_delete', partnership_id=partner.id), 'Remove', 'btn small danger', 'Remove this collaboration?') }}</span>
+  </div>{% else %}<p class="empty-note">No partners added yet.</p>{% endfor %}
+  <form class="admin-add-form" method="post" action="{{ url_for('admin.partnership_add') }}" enctype="multipart/form-data">
+    {{ partnership_form.hidden_tag() }}<h3>Add a collaboration</h3><div class="admin-form-grid">{{ field(partnership_form.name) }}{{ field(partnership_form.description) }}{{ field(partnership_form.website) }}{{ field(partnership_form.photo) }}</div><div class="actions"><button class="btn">Add collaboration</button></div>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Upcoming events</h2><p class="muted">Events automatically appear on the homepage until their date has passed.</p>
+  {% for event in events %}<div class="admin-content-row">
+    {% if event.has_photo %}<img class="admin-thumb" src="{{ url_for('admin.event_photo', event_id=event.id, v=event.photo_version) }}" alt="">{% else %}<span class="admin-thumb admin-thumb-empty">✳</span>{% endif %}
+    <span class="admin-row-copy"><b>{{ event.title }}</b><small>{{ event.event_date.strftime('%d %b %Y') }}{% if event.event_time %} · {{ event.event_time.strftime('%H:%M') }}{% endif %}{% if event.location %} · {{ event.location }}{% endif %}</small></span><span class="actions admin-row-actions"><a class="btn small ghost" href="{{ url_for('admin.event_edit', event_id=event.id) }}">Edit</a>{{ post(url_for('admin.event_delete', event_id=event.id), 'Remove', 'btn small danger', 'Remove this event?') }}</span>
+  </div>{% else %}<p class="empty-note">No events added yet.</p>{% endfor %}
+  <form class="admin-add-form" method="post" action="{{ url_for('admin.event_add') }}" enctype="multipart/form-data">
+    {{ event_form.hidden_tag() }}<h3>Add an event</h3><div class="admin-form-grid">{{ field(event_form.title) }}{{ field(event_form.event_date) }}{{ field(event_form.event_time) }}{{ field(event_form.location) }}{{ field(event_form.link) }}</div>{{ field(event_form.description) }}{{ field(event_form.photo) }}<div class="actions"><button class="btn">Add event</button></div>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Community photo gallery</h2><p class="muted">Share photos that show the club in action.</p>
+  {% for photo in gallery %}<div class="admin-content-row">
+    {% if photo.has_photo %}<img class="admin-thumb" src="{{ url_for('admin.gallery_photo', photo_id=photo.id, v=photo.photo_version) }}" alt="">{% endif %}
+    <span class="admin-row-copy"><b>{{ photo.caption }}</b><small>{{ photo.link or 'Community gallery' }}</small></span>{{ post(url_for('admin.gallery_delete', photo_id=photo.id), 'Remove', 'btn small danger', 'Remove this photo from the gallery?') }}
+  </div>{% else %}<p class="empty-note">No community photos added yet.</p>{% endfor %}
+  <form class="admin-add-form" method="post" action="{{ url_for('admin.gallery_add') }}" enctype="multipart/form-data">
+    {{ gallery_form.hidden_tag() }}<h3>Add a photo</h3><div class="admin-form-grid">{{ field(gallery_form.caption) }}{{ field(gallery_form.link) }}{{ field(gallery_form.photo) }}</div><div class="actions"><button class="btn">Add photo</button></div>
+  </form>
+</section>
+{% endblock %}

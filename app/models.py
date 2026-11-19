@@ -94,6 +94,58 @@ class GlobalCriterion(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
 
+class Leader(db.Model):
+    __tablename__ = "leaders"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    title = db.Column(db.String(120), nullable=False)
+    photo_data = deferred(db.Column(db.LargeBinary))
+    has_photo = db.Column(db.Boolean, default=False, nullable=False)
+    photo_type = db.Column(db.String(30), default="image/jpeg")
+    photo_version = db.Column(db.Integer, default=1)
+    sort_order = db.Column(db.Integer, default=0, nullable=False)
+
+
+class Partnership(db.Model):
+    __tablename__ = "partnerships"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    description = db.Column(db.String(300), default="")
+    website = db.Column(db.String(500), default="")
+    photo_data = deferred(db.Column(db.LargeBinary))
+    has_photo = db.Column(db.Boolean, default=False, nullable=False)
+    photo_type = db.Column(db.String(30), default="image/png")
+    photo_version = db.Column(db.Integer, default=1)
+    sort_order = db.Column(db.Integer, default=0, nullable=False)
+
+
+class CommunityEvent(db.Model):
+    __tablename__ = "community_events"
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.Text, default="")
+    event_date = db.Column(db.Date, nullable=False)
+    event_time = db.Column(db.Time, nullable=True)
+    location = db.Column(db.String(180), default="")
+    link = db.Column(db.String(500), default="")
+    photo_data = deferred(db.Column(db.LargeBinary))
+    has_photo = db.Column(db.Boolean, default=False, nullable=False)
+    photo_type = db.Column(db.String(30), default="image/jpeg")
+    photo_version = db.Column(db.Integer, default=1)
+
+
+class GalleryPhoto(db.Model):
+    __tablename__ = "gallery_photos"
+    id = db.Column(db.Integer, primary_key=True)
+    caption = db.Column(db.String(180), nullable=False)
+    link = db.Column(db.String(500), default="")
+    photo_data = deferred(db.Column(db.LargeBinary))
+    has_photo = db.Column(db.Boolean, default=True, nullable=False)
+    photo_type = db.Column(db.String(30), default="image/jpeg")
+    photo_version = db.Column(db.Integer, default=1)
+    sort_order = db.Column(db.Integer, default=0, nullable=False)
+
+
 class ProjectMember(db.Model):
     __table_args__ = (db.UniqueConstraint("project_id", "user_id"),)
     id = db.Column(db.Integer, primary_key=True)

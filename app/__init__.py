@@ -62,6 +62,12 @@ def create_app():
         return {"club_name": models.get_setting("club_name", "ClubHub"),
                 "club_logo_url": url_for("owner.club_logo", v=logo_version)
                 if models.get_setting("club_logo") else "",
+                "social_links": {
+                    "instagram": models.get_setting("homepage_instagram", ""),
+                    "facebook": models.get_setting("homepage_facebook", ""),
+                    "youtube": models.get_setting("homepage_youtube", ""),
+                    "tiktok": models.get_setting("homepage_tiktok", ""),
+                },
                 "PERMISSIONS": models.PERMISSIONS}
 
     @app.after_request
@@ -109,6 +115,24 @@ def create_app():
         if "global_id" not in criterion_columns:
             with db.engine.begin() as connection:
                 connection.execute(text("ALTER TABLE criterion ADD COLUMN global_id INTEGER"))
+        table_names = set(inspect(db.engine).get_table_names())
+        optional_columns = {
+            "leaders": {"has_photo": "BOOLEAN NOT NULL DEFAULT FALSE"},
+            "partnerships": {"has_photo": "BOOLEAN NOT NULL DEFAULT FALSE"},
+            "community_events": {
+                "event_time": "TIME",
+                "has_photo": "BOOLEAN NOT NULL DEFAULT FALSE",
+            },
+            "gallery_photos": {"has_photo": "BOOLEAN NOT NULL DEFAULT TRUE"},
+        }
+        for table, columns in optional_columns.items():
+            if table not in table_names:
+                continue
+            existing = {column["name"] for column in inspect(db.engine).get_columns(table)}
+            with db.engine.begin() as connection:
+                for name, declaration in columns.items():
+                    if name not in existing:
+                        connection.execute(text(f"ALTER TABLE {table} ADD COLUMN {name} {declaration}"))
         role_names = {role.name.lower() for role in models.ClubRole.query.all()}
         for (member_title,) in db.session.query(models.User.member_title).distinct():
             title = (member_title or "").strip()

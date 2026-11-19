@@ -9,7 +9,47 @@
         "documentation": {}
     },
     {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -441,6 +481,14 @@
         "documentation": {}
     },
     {
+        "label": "TimeField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
         "label": "SelectMultipleField",
         "importPath": "wtforms",
         "description": "wtforms",
@@ -529,6 +577,14 @@
         "documentation": {}
     },
     {
+        "label": "URL",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
         "label": "ValidationError",
         "importPath": "wtforms.validators",
         "description": "wtforms.validators",
@@ -567,22 +623,6 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -880,7 +920,7 @@
         "kind": 2,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "def task(tid):\n    return render_template(\"admin_task.html\", t=db.get_or_404(Task, tid))\n@bp.post(\"/tasks/<int:tid>/delete\")\n@perm_required(\"manage_tasks\")\ndef task_delete(tid):\n    db.session.delete(db.get_or_404(Task, tid))\n    db.session.commit()\n    flash(\"Task deleted.\", \"success\")\n    return redirect(url_for(\"admin.tasks\"))\n# ---------- leaderboard ----------",
+        "peekOfCode": "def task(tid):\n    return render_template(\"admin_task.html\", t=db.get_or_404(Task, tid))\n@bp.post(\"/tasks/<int:tid>/delete\")\n@perm_required(\"manage_tasks\")\ndef task_delete(tid):\n    db.session.delete(db.get_or_404(Task, tid))\n    db.session.commit()\n    flash(\"Task deleted.\", \"success\")\n    return redirect(url_for(\"admin.tasks\"))\n# ---------- public community site ----------",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -889,7 +929,169 @@
         "kind": 2,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "def task_delete(tid):\n    db.session.delete(db.get_or_404(Task, tid))\n    db.session.commit()\n    flash(\"Task deleted.\", \"success\")\n    return redirect(url_for(\"admin.tasks\"))\n# ---------- leaderboard ----------\n@bp.route(\"/leaderboard\", methods=[\"GET\", \"POST\"])\n@perm_required(\"manage_leaderboard\")\ndef board():\n    rows = leaderboard()",
+        "peekOfCode": "def task_delete(tid):\n    db.session.delete(db.get_or_404(Task, tid))\n    db.session.commit()\n    flash(\"Task deleted.\", \"success\")\n    return redirect(url_for(\"admin.tasks\"))\n# ---------- public community site ----------\n@bp.route(\"/community\")\n@perm_required()\ndef community_site():\n    content = {",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "community_site",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def community_site():\n    content = {\n        \"hero_heading\": get_setting(\"homepage_hero_heading\", \"Capture today. Create tomorrow.\"),\n        \"hero_copy\": get_setting(\"homepage_hero_copy\", \"A local home for photographers, filmmakers, editors and curious creators in Mascara, Algeria.\"),\n        \"about_heading\": get_setting(\"homepage_about_heading\", \"A club for people who see stories everywhere.\"),\n        \"about_copy\": get_setting(\"homepage_about_copy\", \"VALiDO brings creative people together to learn, make and share. Join a photo walk, try a new technique, or make your first short film alongside a welcoming community.\"),\n        \"community_copy\": get_setting(\"homepage_community_copy\", \"From first-time photographers to experienced creators, there is room to learn, contribute and make something together.\"),\n        \"instagram\": get_setting(\"homepage_instagram\", \"\"),\n        \"facebook\": get_setting(\"homepage_facebook\", \"\"),\n        \"youtube\": get_setting(\"homepage_youtube\", \"\"),",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "community_content_save",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def community_content_save():\n    form = HomepageContentForm()\n    if form.validate_on_submit():\n        for field in (\"hero_heading\", \"hero_copy\", \"about_heading\", \"about_copy\", \"community_copy\",\n                      \"instagram\", \"facebook\", \"youtube\", \"tiktok\"):\n            set_setting(\"homepage_\" + field, getattr(form, field).data or \"\")\n        flash(\"Homepage content saved.\", \"success\")\n    else:\n        flash(first_error(form), \"error\")\n    return redirect(url_for(\"admin.community_site\"))",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "leader_add",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def leader_add():\n    form = LeaderForm()\n    if form.validate_on_submit():\n        photo, photo_type = _photo_upload(form)\n        if not form.photo.data or not form.photo.data.filename:\n            form.photo.errors.append(\"Add a portrait photo for this leader.\")\n        elif photo is None:\n            form.photo.errors.append(\"We couldn't read that photo.\")\n        else:\n            last = db.session.query(db.func.max(Leader.sort_order)).scalar() or 0",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "leader_edit",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def leader_edit(leader_id):\n    leader = db.get_or_404(Leader, leader_id)\n    form = LeaderForm(obj=leader)\n    if form.validate_on_submit():\n        photo, photo_type = _photo_upload(form)\n        if form.photo.data and form.photo.data.filename and photo is None:\n            form.photo.errors.append(\"We couldn't read that photo.\")\n        else:\n            leader.name, leader.title = form.name.data, form.title.data\n            if photo:",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "leader_delete",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def leader_delete(leader_id):\n    db.session.delete(db.get_or_404(Leader, leader_id))\n    db.session.commit()\n    flash(\"Leader removed.\", \"success\")\n    return redirect(url_for(\"admin.community_site\"))\n@bp.post(\"/community/leaders/<int:leader_id>/move/<direction>\")\n@perm_required()\ndef leader_move(leader_id, direction):\n    leader = db.get_or_404(Leader, leader_id)\n    leaders = Leader.query.order_by(Leader.sort_order, Leader.id).all()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "leader_move",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def leader_move(leader_id, direction):\n    leader = db.get_or_404(Leader, leader_id)\n    leaders = Leader.query.order_by(Leader.sort_order, Leader.id).all()\n    index = leaders.index(leader)\n    target_index = index - 1 if direction == \"up\" else index + 1 if direction == \"down\" else index\n    if 0 <= target_index < len(leaders) and target_index != index:\n        neighbor = leaders[target_index]\n        leader.sort_order, neighbor.sort_order = neighbor.sort_order, leader.sort_order\n        db.session.commit()\n    return redirect(url_for(\"admin.community_site\"))",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "leader_photo",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def leader_photo(leader_id):\n    leader = db.get_or_404(Leader, leader_id)\n    if not leader.has_photo or not leader.photo_data:\n        abort(404)\n    return Response(leader.photo_data, mimetype=leader.photo_type or \"image/jpeg\",\n                    headers={\"Cache-Control\": \"public, max-age=86400\"})\n@bp.post(\"/community/partnerships\")\n@perm_required()\ndef partnership_add():\n    form = PartnershipForm()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "partnership_add",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def partnership_add():\n    form = PartnershipForm()\n    if form.validate_on_submit():\n        photo, photo_type = _photo_upload(form, keep_square=False)\n        if form.photo.data and form.photo.data.filename and photo is None:\n            form.photo.errors.append(\"We couldn't read that logo or photo.\")\n        else:\n            last = db.session.query(db.func.max(Partnership.sort_order)).scalar() or 0\n            db.session.add(Partnership(name=form.name.data, description=form.description.data or \"\",\n                                       website=form.website.data or \"\", photo_data=photo,",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "partnership_edit",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def partnership_edit(partnership_id):\n    partnership = db.get_or_404(Partnership, partnership_id)\n    form = PartnershipForm(obj=partnership)\n    if form.validate_on_submit():\n        photo, photo_type = _photo_upload(form, keep_square=False)\n        if form.photo.data and form.photo.data.filename and photo is None:\n            form.photo.errors.append(\"We couldn't read that logo or photo.\")\n        else:\n            partnership.name, partnership.description = form.name.data, form.description.data or \"\"\n            partnership.website = form.website.data or \"\"",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "partnership_delete",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def partnership_delete(partnership_id):\n    db.session.delete(db.get_or_404(Partnership, partnership_id))\n    db.session.commit()\n    flash(\"Collaboration removed.\", \"success\")\n    return redirect(url_for(\"admin.community_site\"))\n@bp.get(\"/community/partnerships/<int:partnership_id>/photo\")\ndef partnership_photo(partnership_id):\n    partnership = db.get_or_404(Partnership, partnership_id)\n    if not partnership.has_photo or not partnership.photo_data:\n        abort(404)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "partnership_photo",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def partnership_photo(partnership_id):\n    partnership = db.get_or_404(Partnership, partnership_id)\n    if not partnership.has_photo or not partnership.photo_data:\n        abort(404)\n    return Response(partnership.photo_data, mimetype=partnership.photo_type or \"image/png\",\n                    headers={\"Cache-Control\": \"public, max-age=86400\"})\n@bp.post(\"/community/events\")\n@perm_required()\ndef event_add():\n    form = CommunityEventForm()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "event_add",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def event_add():\n    form = CommunityEventForm()\n    if form.validate_on_submit():\n        photo, photo_type = _photo_upload(form)\n        if form.photo.data and form.photo.data.filename and photo is None:\n            form.photo.errors.append(\"We couldn't read that event photo.\")\n        else:\n            db.session.add(CommunityEvent(title=form.title.data, description=form.description.data or \"\",\n                                          event_date=form.event_date.data, event_time=form.event_time.data,\n                                          location=form.location.data or \"\",",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "event_edit",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def event_edit(event_id):\n    event = db.get_or_404(CommunityEvent, event_id)\n    form = CommunityEventForm(obj=event)\n    if form.validate_on_submit():\n        photo, photo_type = _photo_upload(form)\n        if form.photo.data and form.photo.data.filename and photo is None:\n            form.photo.errors.append(\"We couldn't read that event photo.\")\n        else:\n            event.title, event.description = form.title.data, form.description.data or \"\"\n            event.event_date, event.event_time = form.event_date.data, form.event_time.data",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "event_delete",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def event_delete(event_id):\n    db.session.delete(db.get_or_404(CommunityEvent, event_id))\n    db.session.commit()\n    flash(\"Event removed.\", \"success\")\n    return redirect(url_for(\"admin.community_site\"))\n@bp.get(\"/community/events/<int:event_id>/photo\")\ndef event_photo(event_id):\n    event = db.get_or_404(CommunityEvent, event_id)\n    if not event.has_photo or not event.photo_data:\n        abort(404)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "event_photo",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def event_photo(event_id):\n    event = db.get_or_404(CommunityEvent, event_id)\n    if not event.has_photo or not event.photo_data:\n        abort(404)\n    return Response(event.photo_data, mimetype=event.photo_type or \"image/jpeg\",\n                    headers={\"Cache-Control\": \"public, max-age=86400\"})\n@bp.post(\"/community/gallery\")\n@perm_required()\ndef gallery_add():\n    form = GalleryPhotoForm()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "gallery_add",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def gallery_add():\n    form = GalleryPhotoForm()\n    if form.validate_on_submit():\n        photo, photo_type = _photo_upload(form)\n        if not form.photo.data or not form.photo.data.filename:\n            form.photo.errors.append(\"Choose a photo.\")\n        elif photo is None:\n            form.photo.errors.append(\"We couldn't read that photo.\")\n        else:\n            last = db.session.query(db.func.max(GalleryPhoto.sort_order)).scalar() or 0",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "gallery_delete",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def gallery_delete(photo_id):\n    db.session.delete(db.get_or_404(GalleryPhoto, photo_id))\n    db.session.commit()\n    flash(\"Gallery photo removed.\", \"success\")\n    return redirect(url_for(\"admin.community_site\"))\n@bp.get(\"/community/gallery/<int:photo_id>/photo\")\ndef gallery_photo(photo_id):\n    photo = db.get_or_404(GalleryPhoto, photo_id)\n    if not photo.has_photo or not photo.photo_data:\n        abort(404)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "gallery_photo",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def gallery_photo(photo_id):\n    photo = db.get_or_404(GalleryPhoto, photo_id)\n    if not photo.has_photo or not photo.photo_data:\n        abort(404)\n    return Response(photo.photo_data, mimetype=photo.photo_type or \"image/jpeg\",\n                    headers={\"Cache-Control\": \"public, max-age=86400\"})\n# ---------- leaderboard ----------\n@bp.route(\"/leaderboard\", methods=[\"GET\", \"POST\"])\n@perm_required(\"manage_leaderboard\")\ndef board():",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -916,7 +1118,7 @@
         "kind": 2,
         "importPath": "app.auth",
         "description": "app.auth",
-        "peekOfCode": "def index():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"member.dashboard\" if current_user.role == \"member\" else \"admin.dashboard\"))\n    return render_template(\"index.html\")\n@bp.route(\"/healthz\")\ndef healthz():\n    return \"ok\"\n@bp.route(\"/login\", methods=[\"GET\", \"POST\"])\n@limiter.limit(\"10 per minute\", methods=[\"POST\"])\ndef login():",
+        "peekOfCode": "def index():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"member.dashboard\" if current_user.role == \"member\" else \"admin.dashboard\"))\n    content = {\n        \"hero_heading\": get_setting(\"homepage_hero_heading\", \"Capture today. Create tomorrow.\"),\n        \"hero_copy\": get_setting(\"homepage_hero_copy\", \"A local home for photographers, filmmakers, editors and curious creators in Mascara, Algeria.\"),\n        \"about_heading\": get_setting(\"homepage_about_heading\", \"A club for people who see stories everywhere.\"),\n        \"about_copy\": get_setting(\"homepage_about_copy\", \"VALiDO brings creative people together to learn, make and share. Join a photo walk, try a new technique, or make your first short film alongside a welcoming community.\"),\n        \"community_copy\": get_setting(\"homepage_community_copy\", \"From first-time photographers to experienced creators, there is room to learn, contribute and make something together.\"),\n    }",
         "detail": "app.auth",
         "documentation": {}
     },
@@ -970,7 +1172,7 @@
         "kind": 5,
         "importPath": "app.auth",
         "description": "app.auth",
-        "peekOfCode": "bp = Blueprint(\"auth\", __name__)\n@bp.route(\"/\")\ndef index():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"member.dashboard\" if current_user.role == \"member\" else \"admin.dashboard\"))\n    return render_template(\"index.html\")\n@bp.route(\"/healthz\")\ndef healthz():\n    return \"ok\"\n@bp.route(\"/login\", methods=[\"GET\", \"POST\"])",
+        "peekOfCode": "bp = Blueprint(\"auth\", __name__)\n@bp.route(\"/\")\ndef index():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"member.dashboard\" if current_user.role == \"member\" else \"admin.dashboard\"))\n    content = {\n        \"hero_heading\": get_setting(\"homepage_hero_heading\", \"Capture today. Create tomorrow.\"),\n        \"hero_copy\": get_setting(\"homepage_hero_copy\", \"A local home for photographers, filmmakers, editors and curious creators in Mascara, Algeria.\"),\n        \"about_heading\": get_setting(\"homepage_about_heading\", \"A club for people who see stories everywhere.\"),\n        \"about_copy\": get_setting(\"homepage_about_copy\", \"VALiDO brings creative people together to learn, make and share. Join a photo walk, try a new technique, or make your first short film alongside a welcoming community.\"),",
         "detail": "app.auth",
         "documentation": {}
     },
@@ -1069,7 +1271,7 @@
         "kind": 6,
         "importPath": "app.forms",
         "description": "app.forms",
-        "peekOfCode": "class SettingsForm(FlaskForm):\n    club_name = StringField(\"Club name\", filters=strip, validators=[DataRequired(), Length(2, 60)])\n    logo = FileField(\"Club logo\", validators=[IMAGE], description=\"Optional JPG, PNG or WebP image.\")\n    remove_logo = BooleanField(\"Remove current logo\")\nclass ClubRoleForm(FlaskForm):\n    name = StringField(\"Role name\", filters=strip, validators=[DataRequired(), Length(2, 80)])",
+        "peekOfCode": "class SettingsForm(FlaskForm):\n    club_name = StringField(\"Club name\", filters=strip, validators=[DataRequired(), Length(2, 60)])\n    logo = FileField(\"Club logo\", validators=[IMAGE], description=\"Optional JPG, PNG or WebP image.\")\n    remove_logo = BooleanField(\"Remove current logo\")\nclass ClubRoleForm(FlaskForm):\n    name = StringField(\"Role name\", filters=strip, validators=[DataRequired(), Length(2, 80)])\nclass LeaderForm(FlaskForm):\n    name = StringField(\"Name\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    title = StringField(\"Role\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    photo = FileField(\"Portrait photo\", validators=[IMAGE], description=\"Square portrait works best.\")",
         "detail": "app.forms",
         "documentation": {}
     },
@@ -1078,7 +1280,52 @@
         "kind": 6,
         "importPath": "app.forms",
         "description": "app.forms",
-        "peekOfCode": "class ClubRoleForm(FlaskForm):\n    name = StringField(\"Role name\", filters=strip, validators=[DataRequired(), Length(2, 80)])",
+        "peekOfCode": "class ClubRoleForm(FlaskForm):\n    name = StringField(\"Role name\", filters=strip, validators=[DataRequired(), Length(2, 80)])\nclass LeaderForm(FlaskForm):\n    name = StringField(\"Name\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    title = StringField(\"Role\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    photo = FileField(\"Portrait photo\", validators=[IMAGE], description=\"Square portrait works best.\")\n    remove_photo = BooleanField(\"Remove current photo\")\nclass PartnershipForm(FlaskForm):\n    name = StringField(\"Organization or creator\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    description = StringField(\"Short description\", filters=strip, validators=[Optional(), Length(max=300)])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "LeaderForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class LeaderForm(FlaskForm):\n    name = StringField(\"Name\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    title = StringField(\"Role\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    photo = FileField(\"Portrait photo\", validators=[IMAGE], description=\"Square portrait works best.\")\n    remove_photo = BooleanField(\"Remove current photo\")\nclass PartnershipForm(FlaskForm):\n    name = StringField(\"Organization or creator\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    description = StringField(\"Short description\", filters=strip, validators=[Optional(), Length(max=300)])\n    website = StringField(\"Website link\", filters=strip, validators=[Optional(), URL(schemes=[\"http\", \"https\"])])\n    photo = FileField(\"Logo or photo\", validators=[IMAGE])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PartnershipForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class PartnershipForm(FlaskForm):\n    name = StringField(\"Organization or creator\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    description = StringField(\"Short description\", filters=strip, validators=[Optional(), Length(max=300)])\n    website = StringField(\"Website link\", filters=strip, validators=[Optional(), URL(schemes=[\"http\", \"https\"])])\n    photo = FileField(\"Logo or photo\", validators=[IMAGE])\n    remove_photo = BooleanField(\"Remove current image\")\nclass CommunityEventForm(FlaskForm):\n    title = StringField(\"Event title\", filters=strip, validators=[DataRequired(), Length(3, 150)])\n    description = TextAreaField(\"Description\", filters=strip, validators=[Optional(), Length(max=3000)])\n    event_date = DateField(\"Event date\", validators=[DataRequired()])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CommunityEventForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class CommunityEventForm(FlaskForm):\n    title = StringField(\"Event title\", filters=strip, validators=[DataRequired(), Length(3, 150)])\n    description = TextAreaField(\"Description\", filters=strip, validators=[Optional(), Length(max=3000)])\n    event_date = DateField(\"Event date\", validators=[DataRequired()])\n    event_time = TimeField(\"Start time (optional)\", validators=[Optional()])\n    location = StringField(\"Location\", filters=strip, validators=[Optional(), Length(max=180)])\n    link = StringField(\"Event link (optional)\", filters=strip,\n                       validators=[Optional(), URL(schemes=[\"http\", \"https\"])],\n                       description=\"Leave blank if the event has no registration or information page.\")\n    photo = FileField(\"Event photo or poster\", validators=[IMAGE])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "GalleryPhotoForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class GalleryPhotoForm(FlaskForm):\n    caption = StringField(\"Caption\", filters=strip, validators=[DataRequired(), Length(2, 180)])\n    link = StringField(\"Photo link (optional)\", filters=strip, validators=[Optional(), URL(schemes=[\"http\", \"https\"])])\n    photo = FileField(\"Photo\", validators=[IMAGE])\nclass HomepageContentForm(FlaskForm):\n    hero_heading = StringField(\"Hero headline\", filters=strip, validators=[DataRequired(), Length(5, 120)])\n    hero_copy = TextAreaField(\"Hero introduction\", filters=strip, validators=[DataRequired(), Length(20, 400)])\n    about_heading = StringField(\"About heading\", filters=strip, validators=[DataRequired(), Length(3, 100)])\n    about_copy = TextAreaField(\"About the club\", filters=strip, validators=[DataRequired(), Length(20, 1500)])\n    community_copy = TextAreaField(\"Community introduction\", filters=strip, validators=[Optional(), Length(max=1000)])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "HomepageContentForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class HomepageContentForm(FlaskForm):\n    hero_heading = StringField(\"Hero headline\", filters=strip, validators=[DataRequired(), Length(5, 120)])\n    hero_copy = TextAreaField(\"Hero introduction\", filters=strip, validators=[DataRequired(), Length(20, 400)])\n    about_heading = StringField(\"About heading\", filters=strip, validators=[DataRequired(), Length(3, 100)])\n    about_copy = TextAreaField(\"About the club\", filters=strip, validators=[DataRequired(), Length(20, 1500)])\n    community_copy = TextAreaField(\"Community introduction\", filters=strip, validators=[Optional(), Length(max=1000)])\n    instagram = StringField(\"Instagram URL\", filters=strip, validators=[Optional(), URL(schemes=[\"http\", \"https\"])])\n    facebook = StringField(\"Facebook URL\", filters=strip, validators=[Optional(), URL(schemes=[\"http\", \"https\"])])\n    youtube = StringField(\"YouTube URL\", filters=strip, validators=[Optional(), URL(schemes=[\"http\", \"https\"])])\n    tiktok = StringField(\"TikTok URL\", filters=strip, validators=[Optional(), URL(schemes=[\"http\", \"https\"])])",
         "detail": "app.forms",
         "documentation": {}
     },
@@ -1267,7 +1514,43 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class GlobalCriterion(db.Model):\n    __tablename__ = \"global_criteria\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(120), nullable=False)\n    max_mark = db.Column(db.Float, nullable=False)\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\nclass ProjectMember(db.Model):\n    __table_args__ = (db.UniqueConstraint(\"project_id\", \"user_id\"),)\n    id = db.Column(db.Integer, primary_key=True)\n    project_id = db.Column(db.Integer, db.ForeignKey(\"project.id\"), nullable=False)",
+        "peekOfCode": "class GlobalCriterion(db.Model):\n    __tablename__ = \"global_criteria\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(120), nullable=False)\n    max_mark = db.Column(db.Float, nullable=False)\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\nclass Leader(db.Model):\n    __tablename__ = \"leaders\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(120), nullable=False)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Leader",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Leader(db.Model):\n    __tablename__ = \"leaders\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(120), nullable=False)\n    title = db.Column(db.String(120), nullable=False)\n    photo_data = deferred(db.Column(db.LargeBinary))\n    has_photo = db.Column(db.Boolean, default=False, nullable=False)\n    photo_type = db.Column(db.String(30), default=\"image/jpeg\")\n    photo_version = db.Column(db.Integer, default=1)\n    sort_order = db.Column(db.Integer, default=0, nullable=False)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Partnership",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Partnership(db.Model):\n    __tablename__ = \"partnerships\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(120), nullable=False)\n    description = db.Column(db.String(300), default=\"\")\n    website = db.Column(db.String(500), default=\"\")\n    photo_data = deferred(db.Column(db.LargeBinary))\n    has_photo = db.Column(db.Boolean, default=False, nullable=False)\n    photo_type = db.Column(db.String(30), default=\"image/png\")\n    photo_version = db.Column(db.Integer, default=1)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "CommunityEvent",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class CommunityEvent(db.Model):\n    __tablename__ = \"community_events\"\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(150), nullable=False)\n    description = db.Column(db.Text, default=\"\")\n    event_date = db.Column(db.Date, nullable=False)\n    event_time = db.Column(db.Time, nullable=True)\n    location = db.Column(db.String(180), default=\"\")\n    link = db.Column(db.String(500), default=\"\")\n    photo_data = deferred(db.Column(db.LargeBinary))",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "GalleryPhoto",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class GalleryPhoto(db.Model):\n    __tablename__ = \"gallery_photos\"\n    id = db.Column(db.Integer, primary_key=True)\n    caption = db.Column(db.String(180), nullable=False)\n    link = db.Column(db.String(500), default=\"\")\n    photo_data = deferred(db.Column(db.LargeBinary))\n    has_photo = db.Column(db.Boolean, default=True, nullable=False)\n    photo_type = db.Column(db.String(30), default=\"image/jpeg\")\n    photo_version = db.Column(db.Integer, default=1)\n    sort_order = db.Column(db.Integer, default=0, nullable=False)",
         "detail": "app.models",
         "documentation": {}
     },

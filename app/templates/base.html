@@ -7,7 +7,7 @@
 <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head><body>
 <header class="top">
-  <a class="brand" href="{{ url_for('auth.index') }}">{% if club_logo_url %}<img class="club-logo" src="{{ club_logo_url }}" alt="">{% endif %}{{ club_name }}</a>
+  <a class="brand" href="{{ url_for('auth.index') }}">{% if club_logo_url %}<img class="club-logo" src="{{ club_logo_url }}" alt="">{% else %}<img class="club-logo" src="{{ url_for('static', filename='valido-logo.webp') }}" alt="">{% endif %}{{ club_name }}</a>
   <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
   <label for="nav-toggle" class="burger" aria-hidden="true"><span></span></label>
   <nav>
@@ -21,6 +21,7 @@
     {% else %}
       <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
       <a href="{{ url_for('admin.members') }}">Members</a>
+      <a href="{{ url_for('admin.community_site') }}">Website</a>
       {% if current_user.has_perm('manage_projects') %}<a href="{{ url_for('admin.projects') }}">Projects</a>{% endif %}
       {% if current_user.has_perm('manage_tasks') %}<a href="{{ url_for('admin.tasks') }}">Tasks</a>{% endif %}
       <a href="{{ url_for('member.board') }}">Leaderboard</a>
@@ -29,14 +30,28 @@
     <a href="{{ url_for('member.password') }}">Password</a>
     <form method="post" action="{{ url_for('auth.logout') }}" class="inline">{{ csrf() }}<button class="linkbtn">Log out</button></form>
   {% else %}
+    <a href="{{ url_for('auth.index') }}#about">About</a>
+    <a href="{{ url_for('auth.index') }}#events">Events</a>
+    <a href="{{ url_for('auth.index') }}#leaders">Leaders</a>
+    <a href="{{ url_for('auth.index') }}#partners">Partners</a>
     <a href="{{ url_for('auth.login') }}">Log in</a>
     <a class="btn small" href="{{ url_for('auth.register') }}">Join the club</a>
   {% endif %}
   </nav>
 </header>
-<main>
+<main class="{% block main_class %}{% endblock %}">
   {% with msgs = get_flashed_messages(with_categories=true) %}{% for cat, m in msgs %}
   <p class="flash {{ cat }}" role="status">{{ m }}</p>{% endfor %}{% endwith %}
   {% block content %}{% endblock %}
 </main>
+<footer class="site-footer">
+  <div class="footer-inner"><span>{{ club_name }} <small>Photography &amp; Content Creation Club · Algeria</small></span>
+    <nav class="social-links" aria-label="Social media">
+      {% if social_links.instagram %}<a href="{{ social_links.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" class="solid"/></svg></a>{% endif %}
+      {% if social_links.facebook %}<a href="{{ social_links.facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h1.7V1.4C17 1.2 16 1 14.5 1 11.5 1 10 2.8 10 6v3H7v4h3v8z" class="solid"/></svg></a>{% endif %}
+      {% if social_links.youtube %}<a href="{{ social_links.youtube }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 7.2a3 3 0 0 0-2.1-2.1C18 4.6 12 4.6 12 4.6s-6 0-7.9.5A3 3 0 0 0 2 7.2 31 31 0 0 0 1.5 12 31 31 0 0 0 2 16.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8z" class="solid"/><path d="m10 15.5 5-3.5-5-3.5z" class="cutout"/></svg></a>{% endif %}
+      {% if social_links.tiktok %}<a href="{{ social_links.tiktok }}" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 2h3.1c.2 2.1 1.4 3.8 3.4 4.5v3.2a9 9 0 0 1-3.4-1.1v6.8a7.3 7.3 0 1 1-7.3-7.3c.5 0 1 .1 1.4.2v3.5a3.8 3.8 0 1 0 2.8 3.6z" class="solid"/></svg></a>{% endif %}
+    </nav>
+  </div>
+</footer>
 </body></html>
