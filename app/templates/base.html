@@ -7,7 +7,7 @@
 <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head><body>
 <header class="top">
-  <a class="brand" href="{{ url_for('auth.index') }}#about">{% if club_logo_url %}<img class="club-logo" src="{{ club_logo_url }}" alt="">{% else %}<img class="club-logo" src="{{ url_for('static', filename='valido-logo.webp') }}" alt="">{% endif %}{{ club_name }}</a>
+  <a class="brand" href="{{ url_for('auth.about') }}#about">{% if club_logo_url %}<img class="club-logo" src="{{ club_logo_url }}" alt="">{% else %}<img class="club-logo" src="{{ url_for('static', filename='valido-logo.webp') }}" alt="">{% endif %}{{ club_name }}</a>
   <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
   <label for="nav-toggle" class="burger" aria-hidden="true"><span></span></label>
   <nav>

@@ -18,6 +18,15 @@ bp = Blueprint("auth", __name__)
 def index():
     if current_user.is_authenticated:
         return redirect(url_for("member.dashboard" if current_user.role == "member" else "admin.dashboard"))
+    return _render_homepage()
+
+
+@bp.get("/about")
+def about():
+    return _render_homepage()
+
+
+def _render_homepage():
     content = {
         "hero_heading": get_setting("homepage_hero_heading", "Capture today. Create tomorrow."),
         "hero_copy": get_setting("homepage_hero_copy", "A local home for photographers, filmmakers, editors and curious creators in Mascara, Algeria."),
