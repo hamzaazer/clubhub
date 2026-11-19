@@ -3,25 +3,6 @@
 {% block main_class %}home-main{% endblock %}
 {% block content %}
 <div class="home-page">
-  <section class="home-hero">
-    <div class="hero-copy" data-reveal>
-      <p class="eyebrow"><span class="eyebrow-dot"></span> PHOTOGRAPHY · FILM · CONTENT</p>
-      <h1>{{ content.hero_heading }}</h1>
-      <p class="hero-intro">{{ content.hero_copy }}</p>
-      <div class="home-actions">
-        <a class="btn btn-light" href="{{ url_for('auth.register') }}">Join the community <span aria-hidden="true">↗</span></a>
-        <a class="btn btn-outline-light" href="#events">Upcoming events <span aria-hidden="true">↓</span></a>
-      </div>
-      <p class="hero-footnote">A creative home in Mascara, Algeria <span aria-hidden="true">·</span> Everyone welcome</p>
-    </div>
-    <div class="hero-art" data-reveal>
-      <div class="hero-image-wrap"><img src="{{ url_for('static', filename='valido-opening-poster.webp') }}" alt="VALiDO creative club poster featuring photography, video and content creation"></div>
-      <div class="hero-stamp"><span>MAKE</span><span>GOOD</span><span>STORIES</span></div>
-      <div class="hero-caption"><span>01 / OUR STORY</span><span>VALiDO · MASCARA</span></div>
-    </div>
-    <span class="hero-index" aria-hidden="true">01</span>
-  </section>
-
   <section class="home-section about-section" id="about">
     <div class="section-kicker"><span>01</span><span>ABOUT THE CLUB</span></div>
     <div class="about-grid">
@@ -41,6 +22,24 @@
     </div>
   </section>
 
+  <section class="home-hero">
+    <div class="hero-copy" data-reveal>
+      <p class="eyebrow"><span class="eyebrow-dot"></span> PHOTOGRAPHY · FILM · CONTENT</p>
+      <h1>{{ content.hero_heading }}</h1>
+      <p class="hero-intro">{{ content.hero_copy }}</p>
+      <div class="home-actions">
+        <a class="btn btn-light" href="{{ url_for('auth.register') }}">Join the community <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-outline-light" href="#events">Upcoming events <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="hero-footnote">A creative home in Mascara, Algeria <span aria-hidden="true">·</span> Everyone welcome</p>
+    </div>
+    <div class="hero-art" data-reveal>
+      <div class="hero-image-wrap"><img src="{{ url_for('static', filename='valido-opening-poster.webp') }}" alt="VALiDO creative club poster featuring photography, video and content creation"></div>
+      <div class="hero-stamp"><span>MAKE</span><span>GOOD</span><span>STORIES</span></div>
+      <div class="hero-caption"><span>01 / OUR STORY</span><span>VALiDO · MASCARA</span></div>
+    </div>
+    <span class="hero-index" aria-hidden="true">01</span>
+  </section>
   <section class="community-band">
     <div class="community-grid"><h2>Better stories happen together.</h2><div><p>{{ content.community_copy }}</p><a class="btn btn-light" href="{{ url_for('auth.register') }}">Come make something <span aria-hidden="true">↗</span></a></div></div>
     <div class="community-note"><span>CURIOUS MINDS</span><span>LOCAL PERSPECTIVES</span><span>SHARED KNOW-HOW</span></div>
