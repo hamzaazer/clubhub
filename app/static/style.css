@@ -6,12 +6,12 @@
 *{box-sizing:border-box}
 img,video{max-width:100%;height:auto}
 html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 12% 0%,color-mix(in srgb,var(--accent) 8%,transparent),transparent 38rem),var(--paper);color:var(--ink);font:16px/1.55 var(--sans);transition:background-color .25s,color .25s}
+body{display:flex;flex-direction:column;margin:0;min-height:100vh;background:radial-gradient(ellipse at 12% 0%,color-mix(in srgb,var(--accent) 8%,transparent),transparent 38rem),var(--paper);color:var(--ink);font:16px/1.55 var(--sans);transition:background-color .25s,color .25s}
 h1,h2{font-family:var(--serif);font-weight:700;line-height:1.2;margin:0 0 .6rem}
 h1{font-size:1.8rem}h2{font-size:1.2rem}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
-main{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 5rem;animation:page-enter .55s cubic-bezier(.2,.75,.25,1) both}
+main{flex:1;max-width:960px;width:100%;margin:0 auto;padding:1.5rem 1.25rem 5rem;animation:page-enter .55s cubic-bezier(.2,.75,.25,1) both}
 @keyframes page-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes card-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.65rem;padding:.7rem max(1rem,calc((100vw - 1200px)/2));background:color-mix(in srgb,var(--header-bg) 94%,transparent);color:var(--header-text);border-bottom:1px solid color-mix(in srgb,var(--header-text) 12%,transparent);box-shadow:0 6px 24px rgba(0,0,0,.12);backdrop-filter:blur(14px)}
