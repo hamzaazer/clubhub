@@ -99,6 +99,7 @@ class Leader(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     title = db.Column(db.String(120), nullable=False)
+    link = db.Column(db.String(500), nullable=False, default="")
     photo_data = deferred(db.Column(db.LargeBinary))
     has_photo = db.Column(db.Boolean, default=False, nullable=False)
     photo_type = db.Column(db.String(30), default="image/jpeg")

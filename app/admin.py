@@ -438,7 +438,8 @@ def leader_add():
             form.photo.errors.append("We couldn't read that photo.")
         else:
             last = db.session.query(db.func.max(Leader.sort_order)).scalar() or 0
-            db.session.add(Leader(name=form.name.data, title=form.title.data, photo_data=photo, has_photo=True,
+            db.session.add(Leader(name=form.name.data, title=form.title.data, link=form.link.data or "",
+                                  photo_data=photo, has_photo=True,
                                   photo_type=photo_type or "image/jpeg", sort_order=last + 1))
             db.session.commit()
             flash("Leader added.", "success")
@@ -457,7 +458,7 @@ def leader_edit(leader_id):
         if form.photo.data and form.photo.data.filename and photo is None:
             form.photo.errors.append("We couldn't read that photo.")
         else:
-            leader.name, leader.title = form.name.data, form.title.data
+            leader.name, leader.title, leader.link = form.name.data, form.title.data, form.link.data or ""
             if photo:
                 leader.photo_data, leader.photo_type, leader.has_photo = photo, photo_type, True
                 leader.photo_version = (leader.photo_version or 0) + 1

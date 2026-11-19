@@ -145,6 +145,9 @@ class ClubRoleForm(FlaskForm):
 class LeaderForm(FlaskForm):
     name = StringField("Name", filters=strip, validators=[DataRequired(), Length(2, 120)])
     title = StringField("Role", filters=strip, validators=[DataRequired(), Length(2, 120)])
+    link = StringField("Profile link (optional)", filters=strip,
+                       validators=[Optional(), URL(schemes=["http", "https"])],
+                       description="Add a full social media or personal profile URL.")
     photo = FileField("Portrait photo", validators=[IMAGE], description="Square portrait works best.")
     remove_photo = BooleanField("Remove current photo")
 

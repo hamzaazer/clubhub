@@ -117,7 +117,8 @@ def create_app():
                 connection.execute(text("ALTER TABLE criterion ADD COLUMN global_id INTEGER"))
         table_names = set(inspect(db.engine).get_table_names())
         optional_columns = {
-            "leaders": {"has_photo": "BOOLEAN NOT NULL DEFAULT FALSE"},
+            "leaders": {"has_photo": "BOOLEAN NOT NULL DEFAULT FALSE",
+                        "link": "VARCHAR(500) NOT NULL DEFAULT ''"},
             "partnerships": {"has_photo": "BOOLEAN NOT NULL DEFAULT FALSE"},
             "community_events": {
                 "event_time": "TIME",

@@ -33,6 +33,12 @@ def index():
                            gallery=GalleryPhoto.query.order_by(GalleryPhoto.sort_order, GalleryPhoto.id).all())
 
 
+@bp.get("/events/<int:event_id>")
+def event_detail(event_id):
+    event = db.get_or_404(CommunityEvent, event_id)
+    return render_template("event_detail.html", event=event)
+
+
 @bp.route("/healthz")
 def healthz():
     return "ok"

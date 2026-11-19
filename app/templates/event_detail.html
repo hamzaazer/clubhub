@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ event.title }} · {{ club_name }}{% endblock %}
+{% block content %}
+<article class="event-detail">
+  <a class="event-back-link" href="{{ url_for('auth.index') }}#events"><span aria-hidden="true">←</span> All events</a>
+  {% if event.has_photo %}<img class="event-detail-image" src="{{ url_for('admin.event_photo', event_id=event.id, v=event.photo_version) }}" alt="Photo for {{ event.title }}">{% else %}<div class="event-detail-placeholder" aria-hidden="true"><span>VALiDO · MASCARA</span><strong>Make time<br>to create.</strong></div>{% endif %}
+  <div class="event-detail-copy">
+    <p class="event-date">{{ event.event_date.strftime('%A, %d %B %Y') }}{% if event.event_time %} <span>·</span> {{ event.event_time.strftime('%H:%M') }}{% endif %}</p>
+    <h1>{{ event.title }}</h1>
+    {% if event.location %}<p class="event-detail-location"><span aria-hidden="true">⌖</span> {{ event.location }}</p>{% endif %}
+    {% if event.description %}<div class="event-detail-description">{{ event.description }}</div>{% endif %}
+    <div class="event-detail-actions"><a class="btn" href="{{ url_for('auth.register') }}">Join the club <span aria-hidden="true">↗</span></a>{% if event.link %}<a class="text-link" href="{{ event.link }}" target="_blank" rel="noopener noreferrer">More event information <span aria-hidden="true">↗</span></a>{% endif %}</div>
+  </div>
+</article>
+{% endblock %}

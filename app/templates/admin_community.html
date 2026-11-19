@@ -22,7 +22,7 @@
     <span class="actions admin-row-actions">{{ post(url_for('admin.leader_move', leader_id=leader.id, direction='up'), 'Move up', 'btn small ghost') }}{{ post(url_for('admin.leader_move', leader_id=leader.id, direction='down'), 'Move down', 'btn small ghost') }}<a class="btn small ghost" href="{{ url_for('admin.leader_edit', leader_id=leader.id) }}">Edit</a>{{ post(url_for('admin.leader_delete', leader_id=leader.id), 'Remove', 'btn small danger', 'Remove this leader from the homepage?') }}</span>
   </div>{% else %}<p class="empty-note">No leaders added yet.</p>{% endfor %}
   <form class="admin-add-form" method="post" action="{{ url_for('admin.leader_add') }}" enctype="multipart/form-data">
-    {{ leader_form.hidden_tag() }}<h3>Add a leader</h3><div class="admin-form-grid">{{ field(leader_form.name) }}{{ field(leader_form.title) }}{{ field(leader_form.photo) }}</div><div class="actions"><button class="btn">Add leader</button></div>
+    {{ leader_form.hidden_tag() }}<h3>Add a leader</h3><div class="admin-form-grid">{{ field(leader_form.name) }}{{ field(leader_form.title) }}{{ field(leader_form.link) }}{{ field(leader_form.photo) }}</div><div class="actions"><button class="btn">Add leader</button></div>
   </form>
 </section>
 

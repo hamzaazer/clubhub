@@ -11,6 +11,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (linkPath === currentPath) link.setAttribute("aria-current", "page");
   });
 
+  var leaderToggle = document.querySelector("[data-leader-toggle]");
+  var leaderMarquee = document.querySelector("[data-leader-marquee]");
+  if (leaderToggle && leaderMarquee) {
+    leaderToggle.addEventListener("click", function () {
+      var paused = leaderMarquee.classList.toggle("is-paused");
+      leaderToggle.setAttribute("aria-pressed", String(paused));
+      leaderToggle.textContent = paused ? "Resume portraits" : "Pause portraits";
+    });
+  }
+
   var locationSelects = [
     ["wilaya", "commune", "Select commune"],
     ["filter-wilaya", "filter-commune", "All communes"]
