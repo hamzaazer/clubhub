@@ -28,8 +28,11 @@ def create_app():
 
     db_url = os.environ.get("DATABASE_URL") or "sqlite:///club.db"
     if db_url.startswith("postgres://"):
-        db_url = db_url.replace("postgres://", "postgresql://", 1)
-    if prod and not db_url.startswith(("postgresql://", "postgresql+psycopg2://")):
+        db_url = db_url.replace("postgres://", "postgresql+psycopg2://", 1)
+    elif db_url.startswith("postgresql://"):
+        # SQLAlchemy defaults to psycopg 3 for this URL form; requirements install psycopg2.
+        db_url = db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    if prod and not db_url.startswith("postgresql+psycopg2://"):
         raise RuntimeError(
             "DATABASE_URL must be set to the Supabase PostgreSQL connection string in production"
         )
