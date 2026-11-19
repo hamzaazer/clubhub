@@ -26,11 +26,6 @@ def about():
     return _render_homepage()
 
 
-@bp.get("/catalog")
-def catalog():
-    return render_template("catalog.html")
-
-
 def _render_homepage():
     content = {
         "hero_heading": get_setting("homepage_hero_heading", "Capture today. Create tomorrow."),
