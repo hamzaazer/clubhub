@@ -2,6 +2,7 @@
 {% block title %}Settings · {{ club_name }}{% endblock %}
 {% block content %}
 <h1>Settings</h1>
+{% if can_manage_settings %}
 <section class="card narrow">
   <h2>Club</h2>
   <form method="post" action="{{ url_for('owner.settings') }}" enctype="multipart/form-data">
@@ -13,6 +14,8 @@
     <div class="actions"><button class="btn">Save</button></div>
   </form>
 </section>
+{% endif %}
+{% if can_manage_criteria %}
 <section class="card">
   <h2>Global scoring criteria</h2>
   <p class="muted">These criteria are shared across all projects. Changes apply to current and future projects.</p>
@@ -37,4 +40,5 @@
     <div class="actions"><button class="btn">Add to all projects</button></div>
   </form>
 </section>
+{% endif %}
 {% endblock %}

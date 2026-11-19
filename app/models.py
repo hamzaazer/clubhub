@@ -12,7 +12,8 @@ PERMISSIONS = {
     "manage_projects": "Create projects, scoring criteria and marks",
     "manage_tasks": "Send tasks and read member replies",
     "manage_leaderboard": "Manage the leaderboard and first place",
-    "manage_settings": "Manage club settings, branding and shared criteria",
+    "manage_settings": "Manage club settings, branding and global criteria",
+    "manage_global_criteria": "Manage shared global criteria",
 }
 
 
@@ -46,6 +47,7 @@ class User(UserMixin, db.Model):
     manage_tasks = db.Column(db.Boolean, default=False)
     manage_leaderboard = db.Column(db.Boolean, default=False)
     manage_settings = db.Column(db.Boolean, default=False)
+    manage_global_criteria = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     memberships = db.relationship("ProjectMember", back_populates="user", cascade="all, delete-orphan")
@@ -64,7 +66,13 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, pw)
 
     def has_perm(self, perm):
-        return self.role == "owner" or (self.role == "admin" and bool(getattr(self, perm, False)))
+        if self.role == "owner":
+            return True
+        if self.role != "admin":
+            return False
+        if perm == "manage_global_criteria":
+            return bool(self.manage_global_criteria or self.manage_settings)
+        return bool(getattr(self, perm, False))
 
     @property
     def equipment_list(self):

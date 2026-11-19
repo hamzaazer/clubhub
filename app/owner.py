@@ -1,7 +1,8 @@
 import base64
 from io import BytesIO
 
-from flask import Blueprint, Response, abort, flash, redirect, render_template, url_for
+from flask import Blueprint, Response, abort, flash, redirect, render_template, request, url_for
+from flask_login import current_user
 
 from . import db
 from .forms import AdminForm, ClubRoleForm, CriterionForm, SettingsForm
@@ -101,8 +102,14 @@ def admin_delete(uid):
 
 
 @bp.route("/settings", methods=["GET", "POST"])
-@perm_required("manage_settings")
+@perm_required()
 def settings():
+    can_manage_settings = current_user.has_perm("manage_settings")
+    can_manage_criteria = current_user.has_perm("manage_global_criteria")
+    if not (can_manage_settings or can_manage_criteria):
+        abort(403)
+    if request.method == "POST" and not can_manage_settings:
+        abort(403)
     form = SettingsForm(club_name=get_setting("club_name", "ClubHub"))
     if form.validate_on_submit():
         logo_data = process_logo(form.logo.data) if form.logo.data else None
@@ -120,7 +127,9 @@ def settings():
             return redirect(url_for("owner.settings"))
     return render_template("owner_settings.html", form=form, criteria_form=CriterionForm(),
                            global_criteria=GlobalCriterion.query.order_by(GlobalCriterion.id).all(),
-                           has_club_logo=bool(get_setting("club_logo")))
+                           has_club_logo=bool(get_setting("club_logo")),
+                           can_manage_settings=can_manage_settings,
+                           can_manage_criteria=can_manage_criteria)
 
 
 @bp.get("/logo")
@@ -138,7 +147,7 @@ def club_logo():
 
 
 @bp.post("/settings/global-criteria")
-@perm_required("manage_settings")
+@perm_required("manage_global_criteria")
 def global_criterion_add():
     form = CriterionForm()
     if form.validate_on_submit():
@@ -157,7 +166,7 @@ def global_criterion_add():
 
 
 @bp.post("/settings/global-criteria/<int:criterion_id>")
-@perm_required("manage_settings")
+@perm_required("manage_global_criteria")
 def global_criterion_edit(criterion_id):
     global_criterion = db.get_or_404(GlobalCriterion, criterion_id)
     form = CriterionForm()
@@ -181,7 +190,7 @@ def global_criterion_edit(criterion_id):
 
 
 @bp.post("/settings/global-criteria/<int:criterion_id>/delete")
-@perm_required("manage_settings")
+@perm_required("manage_global_criteria")
 def global_criterion_delete(criterion_id):
     global_criterion = db.get_or_404(GlobalCriterion, criterion_id)
     has_marks = (db.session.query(Score.id).join(Criterion, Criterion.id == Score.criterion_id)
