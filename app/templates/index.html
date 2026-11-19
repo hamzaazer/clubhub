@@ -42,7 +42,6 @@
   </section>
 
   <section class="community-band">
-    <div class="section-kicker"><span>02</span><span>THE COMMUNITY</span></div>
     <div class="community-grid"><h2>Better stories happen together.</h2><div><p>{{ content.community_copy }}</p><a class="btn btn-light" href="{{ url_for('auth.register') }}">Come make something <span aria-hidden="true">↗</span></a></div></div>
     <div class="community-note"><span>CURIOUS MINDS</span><span>LOCAL PERSPECTIVES</span><span>SHARED KNOW-HOW</span></div>
   </section>
@@ -60,18 +59,14 @@
 
   <section class="leaders-section" id="leaders">
     <div class="section-kicker"><span>04</span><span>MEET THE PEOPLE</span></div>
-    <div class="section-heading"><div><h2>Meet the leaders</h2><p>The people helping our creative community grow.</p></div>{% if leaders|length > 1 %}<button class="leader-motion-toggle" type="button" data-leader-toggle aria-pressed="false">Pause portraits</button>{% endif %}</div>
-    {% if leaders %}<div class="leader-marquee" data-leader-marquee>
-      <div class="leader-track">
-        {% for copy in range(2 if leaders|length > 1 else 1) %}<div class="leader-list"{% if copy %} aria-hidden="true" inert{% endif %}>
-          {% for leader in leaders %}<article class="leader-card">
-            {% if leader.link %}<a class="leader-profile-link" href="{{ leader.link }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ leader.name }}’s profile in a new tab">{% endif %}
-            {% if leader.has_photo %}<img class="leader-image" src="{{ url_for('admin.leader_photo', leader_id=leader.id, v=leader.photo_version) }}" alt="Portrait of {{ leader.name }}" loading="lazy">{% else %}<div class="leader-image leader-placeholder" aria-hidden="true">{{ leader.name[:1]|upper }}</div>{% endif %}
-            <div class="leader-overlay"><h3>{{ leader.name }}</h3><p>{{ leader.title }}{% if leader.link %} <span aria-hidden="true">↗</span>{% endif %}</p></div>
-            {% if leader.link %}</a>{% endif %}
-          </article>{% endfor %}
-        </div>{% endfor %}
-      </div>
+    <div class="section-heading"><div><h2>Meet the leaders</h2><p>The people helping our creative community grow.</p></div></div>
+    {% if leaders %}<div class="leader-grid">
+      {% for leader in leaders %}<article class="leader-card">
+        {% if leader.link %}<a class="leader-profile-link" href="{{ leader.link }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ leader.name }}’s profile in a new tab">{% endif %}
+        {% if leader.has_photo %}<img class="leader-image" src="{{ url_for('admin.leader_photo', leader_id=leader.id, v=leader.photo_version) }}" alt="Portrait of {{ leader.name }}" loading="lazy">{% else %}<div class="leader-image leader-placeholder" aria-hidden="true">{{ leader.name[:1]|upper }}</div>{% endif %}
+        <div class="leader-overlay"><h3>{{ leader.name }}</h3><p>{{ leader.title }}{% if leader.link %} <span aria-hidden="true">↗</span>{% endif %}</p></div>
+        {% if leader.link %}</a>{% endif %}
+      </article>{% endfor %}
     </div>{% else %}<p class="empty-note">Our leaders will be introduced here soon.</p>{% endif %}
   </section>
 

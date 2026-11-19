@@ -1,6 +1,6 @@
 {% from "_m.html" import csrf %}
 <!doctype html>
-<html lang="en"><head>
+<html lang="{{ current_language }}" dir="{{ 'rtl' if current_language == 'ar' else 'ltr' }}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}{{ club_name }}{% endblock %}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -37,6 +37,15 @@
     <a href="{{ url_for('auth.login') }}">Log in</a>
     <a class="btn small" href="{{ url_for('auth.register') }}">Join the club</a>
   {% endif %}
+  <form class="language-form" method="post" action="{{ url_for('auth.set_language') }}">
+    {{ csrf() }}<input type="hidden" name="next" value="{{ request.full_path }}">
+    <label class="sr-only" for="language-select">Language</label>
+    <select id="language-select" name="language" aria-label="Language">
+      <option value="en"{% if current_language == 'en' %} selected{% endif %}>English</option>
+      <option value="ar"{% if current_language == 'ar' %} selected{% endif %}>Arabic</option>
+    </select>
+    <button class="language-button" type="submit">Change language</button>
+  </form>
   </nav>
 </header>
 <main class="{% block main_class %}{% endblock %}">

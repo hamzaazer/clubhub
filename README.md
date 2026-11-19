@@ -28,58 +28,58 @@ secure/HTTP-only/SameSite cookies, HTTPS-only cookies and HSTS in production, st
 server-side validation on every form, uploaded images re-encoded and resized (no raw uploads are stored),
 role/permission checks on every admin route, profile photos visible only to logged-in users.
 
-## Deploy online (free): Render + Neon
-**Why this pair.** Render runs the Python app for free, with free custom domains and managed HTTPS.
-Render's disk is wiped on every deploy/restart, and its free Postgres expires after 30 days, so the
-data lives in **Neon** (free Postgres with no expiry). Profile photos are stored *inside the database*
-(resized to ~50 KB each), so nothing important is on Render's disk.
+## Use Supabase for the database
+ClubHub uses its existing Flask authentication and SQLAlchemy models; Supabase provides PostgreSQL storage.
+The app does not use Supabase Auth or the Supabase Data API. Accounts, project data, settings, and resized
+photos are stored in the database.
 
-Free-tier trade-offs: the app sleeps after 15 minutes without visitors and takes ~1 minute to wake up;
-the database also sleeps after 5 idle minutes and wakes in seconds. Upgrading Render to a paid instance
-(about $7/month at the time of writing) removes the sleep.
+### Connect the existing local dataset
+The current local database is `instance/club.db`. Create a Supabase project, then open **Connect** in its
+dashboard and copy the **Session pooler** connection string (port `5432`). The Session pooler is suitable
+for this long-running Flask/Gunicorn service on Render's IPv4 network. Keep the password private and
+percent-encode reserved characters in it.
 
-### Step 1 — Put the code on GitHub
-Create a private repository and push this folder (`.env` and `*.db` are git-ignored).
+Set `SUPABASE_DATABASE_URL` in your local shell to that connection string, then run a dry run:
 
-### Step 2 — Create the database (Neon)
-1. Sign up at neon.com (no card) → **Create project** (pick a region near your members).
-2. Click **Connect**, tick **Pooled connection**, copy the connection string. It looks like
-   `postgresql://user:password@ep-xxxx-pooler.region.aws.neon.tech/neondb?sslmode=require`.
-   If you get an SSL/`channel_binding` error, delete `&channel_binding=require` from the string.
+```bash
+python scripts/migrate_sqlite_to_supabase.py
+```
 
-### Step 3 — Create the web service (Render)
-1. render.com → **New → Blueprint** → select your repo (it reads `render.yaml`), **or** **New → Web Service** with:
-   Runtime *Python 3*, Build `pip install -r requirements.txt`,
-   Start `gunicorn wsgi:app --workers 1 --threads 4 --timeout 60`, Instance type *Free*,
-   Health check path `/healthz`.
-2. Add these environment variables:
+Review the printed row counts, then run the import and type `IMPORT` when prompted:
 
-| Variable | Value |
-|---|---|
-| `FLASK_ENV` | `production` (turns on secure cookies, HSTS, requires `SECRET_KEY`) |
-| `SECRET_KEY` | long random string (`python -c "import secrets;print(secrets.token_hex(32))"`); the Blueprint generates one |
-| `DATABASE_URL` | the Neon connection string from Step 2 |
-| `OWNER_NAME`, `OWNER_EMAIL`, `OWNER_PASSWORD` | your Owner login (created automatically if no Owner exists) |
-| `PYTHON_VERSION` | `3.12.7` |
+```bash
+python scripts/migrate_sqlite_to_supabase.py --apply
+```
 
-3. Deploy. Tables are created automatically on first start. Open the `https://<name>.onrender.com`
-   address, log in as Owner, then use **Password** to change it and remove `OWNER_PASSWORD` from Render.
+The importer refuses to copy into a destination that already has ClubHub rows. It copies the application
+tables, including password hashes and photo data, adjusts PostgreSQL ID sequences, and enables RLS on the
+app tables. Back up the SQLite file before migration. The importer does not print credentials or member data.
 
-### Step 4 — Custom domain + HTTPS
-1. Buy a domain at any registrar (the only unavoidable cost, usually ~$10–15/year).
-2. Render → your service → **Settings → Custom Domains → Add** (add both `example.com` and `www.example.com`).
-3. At your registrar's DNS page create exactly the records Render shows: normally a **CNAME** for `www`
-   pointing to `<name>.onrender.com`, and for the bare domain an **A/ALIAS** record with the value Render gives.
-   Delete any old A/AAAA records on the same names.
-4. Click **Verify** in Render. When DNS propagates (minutes to a few hours) Render issues and renews the
-   HTTPS certificate automatically and redirects HTTP to HTTPS. No code change is needed.
+### Deploy on Render
+1. Push the project to a private GitHub repository (`.env` and `*.db` are git-ignored).
+2. In Render, create a Blueprint from the repository or create a Python Web Service with the commands in
+   `render.yaml`.
+3. Set `DATABASE_URL` to the same Supabase Session pooler URL. Set `OWNER_NAME`, `OWNER_EMAIL`, and
+   `OWNER_PASSWORD` only if you need a new Owner account; remove `OWNER_PASSWORD` after first login.
+   `SUPABASE_ENABLE_RLS=true` enables Row Level Security on the app's public tables. The Flask server
+   connects as the database owner and enforces ClubHub permissions; RLS without client policies blocks
+   direct Data API access. Keep the database URL server-side and do not put a Supabase secret key in browser
+   code.
+4. Deploy and verify `/healthz`, then sign in and confirm the migrated records are present.
+
+If the project will only be accessed through this Flask backend, you can also disable the Supabase Data API
+in the Supabase dashboard. If you later expose tables to the Data API, add and review RLS policies for the
+intended client access before enabling it.
+
+Render's free service may sleep after inactivity. Supabase database availability and limits depend on the
+selected Supabase plan; check the project dashboard for current usage and backup options.
 
 ### Persistence checklist
-- Accounts, projects, tasks, marks, notes, leaderboard settings **and photos** → Neon Postgres. Redeploys,
-  restarts and sleep never touch them.
-- Back up occasionally: `pg_dump "$DATABASE_URL" > backup.sql`.
-- Free Neon limits: roughly 0.5–1 GB storage and 100 compute-hours/month (see neon.com pricing) —
-  far more than a club needs. If a free limit is hit, Neon suspends compute until the next month.
+- Accounts, projects, tasks, marks, notes, leaderboard settings, and photos live in Supabase Postgres.
+- Back up using Supabase's dashboard backup options or `pg_dump` over a direct connection. The Session
+  pooler is for app connections; use a direct connection for database migrations and backup tools.
+- Set `SUPABASE_ENABLE_RLS=true` in production. If a new table is added later, ensure it is covered by the
+  RLS startup setup and has no unintended Data API grants or policies.
 
 ### Updating the app
 Push to GitHub; Render redeploys. `create_all()` only creates *missing tables*. The app also adds the
@@ -100,5 +100,5 @@ app/forms.py      validated forms        app/utils.py   permissions + image proc
 app/auth.py       login, join, avatar    app/member.py  member area
 app/admin.py      admin area             app/owner.py   owner-only area
 app/templates/    pages                  app/static/    CSS + tiny JS
-wsgi.py · render.yaml · requirements.txt · .env.example
+wsgi.py · render.yaml · requirements.txt · .env.example · scripts/migrate_sqlite_to_supabase.py
 ```

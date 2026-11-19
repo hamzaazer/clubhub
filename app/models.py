@@ -151,7 +151,7 @@ class ProjectMember(db.Model):
     __table_args__ = (db.UniqueConstraint("project_id", "user_id"),)
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey("project.id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     contribution = db.Column(db.Text, default="")
     note = db.Column(db.Text, default="")
     project = db.relationship("Project", back_populates="members")
@@ -169,7 +169,7 @@ class ProjectMember(db.Model):
 
 class Criterion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey("project.id"), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey("project.id"), nullable=False, index=True)
     global_id = db.Column(db.Integer, db.ForeignKey("global_criteria.id"), nullable=True, index=True)
     name = db.Column(db.String(120), nullable=False)
     max_mark = db.Column(db.Float, nullable=False)
@@ -182,8 +182,8 @@ class Score(db.Model):
     __table_args__ = (db.UniqueConstraint("project_id", "user_id", "criterion_id"),)
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey("project.id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    criterion_id = db.Column(db.Integer, db.ForeignKey("criterion.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+    criterion_id = db.Column(db.Integer, db.ForeignKey("criterion.id"), nullable=False, index=True)
     mark = db.Column(db.Float, nullable=False)
     project = db.relationship("Project", back_populates="scores")
     user = db.relationship("User", back_populates="scores")
@@ -207,8 +207,8 @@ class Task(db.Model):
 
 class TaskAssignment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    task_id = db.Column(db.Integer, db.ForeignKey("task.id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    task_id = db.Column(db.Integer, db.ForeignKey("task.id"), nullable=False, index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     status = db.Column(db.String(12), default="open")  # open|in_progress|done
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
     task = db.relationship("Task", back_populates="assignments")
@@ -219,7 +219,7 @@ class TaskAssignment(db.Model):
 
 class TaskResponse(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    assignment_id = db.Column(db.Integer, db.ForeignKey("task_assignment.id"), nullable=False)
+    assignment_id = db.Column(db.Integer, db.ForeignKey("task_assignment.id"), nullable=False, index=True)
     message = db.Column(db.Text, nullable=False)
     status = db.Column(db.String(12), default="open")
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -228,7 +228,7 @@ class TaskResponse(db.Model):
 
 class PendingChange(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     field = db.Column(db.String(20), nullable=False)  # full_name|email
     new_value = db.Column(db.String(255), nullable=False)
     status = db.Column(db.String(10), default="pending")

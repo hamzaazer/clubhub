@@ -78,6 +78,18 @@ def logout():
     return redirect(url_for("auth.login"))
 
 
+@bp.post("/language")
+def set_language():
+    language = request.form.get("language", "en")
+    if language not in ("en", "ar"):
+        abort(400)
+    session["language"] = language
+    next_page = request.form.get("next", "")
+    if not next_page.startswith("/") or next_page.startswith("//") or "\\" in next_page:
+        next_page = url_for("auth.index")
+    return redirect(next_page)
+
+
 @bp.route("/join", methods=["GET", "POST"])
 @limiter.limit("10 per hour", methods=["POST"])
 def register():

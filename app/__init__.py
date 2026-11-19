@@ -2,7 +2,7 @@ import os
 from datetime import timedelta
 
 import click
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, session, url_for
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_login import LoginManager
@@ -10,6 +10,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
 from sqlalchemy import inspect, text
 from werkzeug.middleware.proxy_fix import ProxyFix
+
+from .i18n import translate_html
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -60,6 +62,7 @@ def create_app():
     def inject_globals():
         logo_version = models.get_setting("club_logo_version", "0")
         return {"club_name": models.get_setting("club_name", "ClubHub"),
+                "current_language": session.get("language", "en"),
                 "club_logo_url": url_for("owner.club_logo", v=logo_version)
                 if models.get_setting("club_logo") else "",
                 "social_links": {
@@ -72,6 +75,7 @@ def create_app():
 
     @app.after_request
     def security_headers(resp):
+        translate_html(resp, session.get("language", "en"))
         resp.headers["X-Content-Type-Options"] = "nosniff"
         resp.headers["X-Frame-Options"] = "DENY"
         resp.headers["Referrer-Policy"] = "same-origin"
@@ -100,6 +104,14 @@ def create_app():
 
     with app.app_context():
         db.create_all()
+        if os.environ.get("SUPABASE_ENABLE_RLS", "").lower() in ("1", "true", "yes"):
+            # Flask uses the trusted database connection; the table owner bypasses RLS.
+            # Enabling RLS with no client policies blocks direct Data API access.
+            preparer = db.engine.dialect.identifier_preparer
+            with db.engine.begin() as connection:
+                for table in db.metadata.sorted_tables:
+                    table_name = preparer.quote(table.name)
+                    connection.execute(text(f"ALTER TABLE public.{table_name} ENABLE ROW LEVEL SECURITY"))
         user_columns = {column["name"] for column in inspect(db.engine).get_columns("users")}
         new_columns = {
             "member_title": "VARCHAR(80) NOT NULL DEFAULT ''",
