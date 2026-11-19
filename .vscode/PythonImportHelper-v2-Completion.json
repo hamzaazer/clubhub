@@ -1,0 +1,1589 @@
+[
+    {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "logout_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "UserMixin",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "undefer",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "deferred",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "FileAllowed",
+        "importPath": "flask_wtf.file",
+        "description": "flask_wtf.file",
+        "isExtraImport": true,
+        "detail": "flask_wtf.file",
+        "documentation": {}
+    },
+    {
+        "label": "FileField",
+        "importPath": "flask_wtf.file",
+        "description": "flask_wtf.file",
+        "isExtraImport": true,
+        "detail": "flask_wtf.file",
+        "documentation": {}
+    },
+    {
+        "label": "FileRequired",
+        "importPath": "flask_wtf.file",
+        "description": "flask_wtf.file",
+        "isExtraImport": true,
+        "detail": "flask_wtf.file",
+        "documentation": {}
+    },
+    {
+        "label": "BooleanField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "DateField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "FloatField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SelectField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SelectMultipleField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "StringField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "TextAreaField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "widgets",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "DataRequired",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Email",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "EqualTo",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "NumberRange",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Regexp",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "lru_cache",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "wraps",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "ImageOps",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "approved_members",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def approved_members():\n    return User.query.filter_by(role=\"member\", status=\"approved\").order_by(func.lower(User.full_name)).all()\ndef first_error(form):\n    for errs in form.errors.values():\n        return errs[0]\n    return \"Please check the form.\"\n# ---------- dashboard: registrations + profile changes ----------\n@bp.route(\"/\")\n@perm_required()\ndef dashboard():",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "first_error",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def first_error(form):\n    for errs in form.errors.values():\n        return errs[0]\n    return \"Please check the form.\"\n# ---------- dashboard: registrations + profile changes ----------\n@bp.route(\"/\")\n@perm_required()\ndef dashboard():\n    can = current_user.has_perm(\"approve_members\")\n    pending = (User.query.filter_by(role=\"member\", status=\"pending\").order_by(User.created_at).all() if can else [])",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def dashboard():\n    can = current_user.has_perm(\"approve_members\")\n    pending = (User.query.filter_by(role=\"member\", status=\"pending\").order_by(User.created_at).all() if can else [])\n    changes = (PendingChange.query.filter_by(status=\"pending\").order_by(PendingChange.created_at).all() if can else [])\n    stats = {\"members\": User.query.filter_by(role=\"member\", status=\"approved\").count(),\n             \"projects\": Project.query.count(), \"tasks\": Task.query.count()}\n    return render_template(\"admin_dashboard.html\", pending=pending, changes=changes, stats=stats)\n@bp.post(\"/members/<int:uid>/<action>\")\n@perm_required(\"approve_members\")\ndef decide_member(uid, action):",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "decide_member",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def decide_member(uid, action):\n    u = db.get_or_404(User, uid)\n    if action not in (\"approve\", \"reject\") or u.role != \"member\" or u.status != \"pending\":\n        abort(400)\n    u.status = \"approved\" if action == \"approve\" else \"rejected\"\n    db.session.commit()\n    flash(f\"{u.full_name} was {u.status}.\", \"success\")\n    return redirect(url_for(\"admin.dashboard\"))\n@bp.post(\"/changes/<int:cid>/<action>\")\n@perm_required(\"approve_members\")",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "decide_change",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def decide_change(cid, action):\n    c = db.get_or_404(PendingChange, cid)\n    if action not in (\"approve\", \"reject\") or c.status != \"pending\":\n        abort(400)\n    if action == \"approve\":\n        if c.field == \"email\":\n            taken = User.query.filter(func.lower(User.email) == c.new_value.lower(), User.id != c.user_id).first()\n            if taken:\n                c.status = \"rejected\"\n                db.session.commit()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "members",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def members():\n    query, filters = member_query()\n    return render_template(\"admin_members.html\", members=query.order_by(func.lower(User.full_name)).all(),\n                           **filters)\ndef member_query():\n    status = request.args.get(\"status\", \"approved\")\n    status = status if status in (\"approved\", \"pending\", \"rejected\") else \"approved\"\n    q = request.args.get(\"q\", \"\").strip()[:60]\n    selected_wilaya = request.args.get(\"wilaya\", \"\")\n    locations = algeria_locations()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "member_query",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def member_query():\n    status = request.args.get(\"status\", \"approved\")\n    status = status if status in (\"approved\", \"pending\", \"rejected\") else \"approved\"\n    q = request.args.get(\"q\", \"\").strip()[:60]\n    selected_wilaya = request.args.get(\"wilaya\", \"\")\n    locations = algeria_locations()\n    known_wilayas = {wilaya_code(item[\"code\"]): item for item in locations}\n    if selected_wilaya not in known_wilayas:\n        selected_wilaya = \"\"\n    selected_commune = request.args.get(\"commune\", \"\")",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "members_live",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def members_live():\n    query, _ = member_query()\n    entries = []\n    for u in query.order_by(func.lower(User.full_name)).all():\n        location = f\"{u.commune}, Wilaya {u.wilaya}\" if u.commune and u.wilaya else \"\"\n        entries.append({\n            \"id\": u.id,\n            \"href\": url_for(\"admin.member\", uid=u.id),\n            \"name\": u.full_name,\n            \"email\": u.email,",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "member",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def member(uid):\n    u = db.get_or_404(User, uid)\n    if u.role != \"member\":\n        abort(404)\n    return render_template(\"admin_member.html\", u=u, rank=member_rank(uid),\n                           parts=ProjectMember.query.filter_by(user_id=uid).all(),\n                           tasks=TaskAssignment.query.filter_by(user_id=uid).order_by(TaskAssignment.id.desc()).all())\n@bp.get(\"/members/<int:uid>/live\")\n@perm_required()\ndef member_live(uid):",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "member_live",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def member_live(uid):\n    u = db.get_or_404(User, uid)\n    if u.role != \"member\":\n        abort(404)\n    return jsonify({\n        \"full_name\": u.full_name,\n        \"status\": u.status,\n        \"member_title\": u.member_title or \"Not set\",\n        \"email\": u.email,\n        \"phone\": u.phone or \"\",",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "reset_password",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def reset_password(uid):\n    u = db.get_or_404(User, uid)\n    if u.role != \"member\":\n        abort(404)\n    temp = secrets.token_urlsafe(9)\n    u.set_password(temp)\n    db.session.commit()\n    flash(f\"Temporary password for {u.full_name}: {temp} — share it privately and ask them to change it.\", \"info\")\n    return redirect(url_for(\"admin.member\", uid=uid))\n@bp.post(\"/members/<int:uid>/delete\")",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "delete_member",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def delete_member(uid):\n    u = db.get_or_404(User, uid)\n    if u.role != \"member\":\n        abort(404)\n    db.session.delete(u)\n    db.session.commit()\n    flash(\"Member removed with all their data.\", \"success\")\n    return redirect(url_for(\"admin.members\"))\n# ---------- projects ----------\n@bp.route(\"/projects\")",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "projects",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def projects():\n    return render_template(\"admin_projects.html\", projects=Project.query.order_by(Project.id.desc()).all())\n@bp.route(\"/projects/new\", methods=[\"GET\", \"POST\"])\n@perm_required(\"manage_projects\")\ndef project_new():\n    form = ProjectForm()\n    if form.validate_on_submit():\n        p = Project(title=form.title.data, description=form.description.data)\n        db.session.add(p)\n        db.session.flush()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "project_new",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def project_new():\n    form = ProjectForm()\n    if form.validate_on_submit():\n        p = Project(title=form.title.data, description=form.description.data)\n        db.session.add(p)\n        db.session.flush()\n        for global_criterion in GlobalCriterion.query.order_by(GlobalCriterion.id).all():\n            db.session.add(Criterion(project_id=p.id, global_id=global_criterion.id,\n                                     name=global_criterion.name, max_mark=global_criterion.max_mark))\n        db.session.commit()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "project_edit",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def project_edit(pid):\n    p = db.get_or_404(Project, pid)\n    form = ProjectForm(obj=p)\n    if form.validate_on_submit():\n        p.title, p.description = form.title.data, form.description.data\n        db.session.commit()\n        flash(\"Project updated.\", \"success\")\n        return redirect(url_for(\"admin.project\", pid=pid))\n    return render_template(\"form.html\", title=\"Edit project\", form=form, submit=\"Save changes\",\n                           back=url_for(\"admin.project\", pid=pid))",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "project",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def project(pid):\n    p = db.get_or_404(Project, pid)\n    marks = {(s.user_id, s.criterion_id): s.mark for s in Score.query.filter_by(project_id=pid)}\n    return render_template(\"admin_project.html\", p=p, candidates=approved_members(),\n                           pm_ids={m.user_id for m in p.members}, marks=marks, cform=CriterionForm())\n@bp.post(\"/projects/<int:pid>/delete\")\n@perm_required(\"manage_projects\")\ndef project_delete(pid):\n    db.session.delete(db.get_or_404(Project, pid))\n    db.session.commit()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "project_delete",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def project_delete(pid):\n    db.session.delete(db.get_or_404(Project, pid))\n    db.session.commit()\n    flash(\"Project deleted.\", \"success\")\n    return redirect(url_for(\"admin.projects\"))\n@bp.post(\"/projects/<int:pid>/participants\")\n@perm_required(\"manage_projects\")\ndef set_participants(pid):\n    p = db.get_or_404(Project, pid)\n    valid = {u.id for u in approved_members()}",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "set_participants",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def set_participants(pid):\n    p = db.get_or_404(Project, pid)\n    valid = {u.id for u in approved_members()}\n    wanted = {int(x) for x in request.form.getlist(\"members\") if x.isdigit()} & valid\n    current = {m.user_id: m for m in p.members}\n    for uid in wanted - set(current):\n        db.session.add(ProjectMember(project_id=pid, user_id=uid))\n    for uid in set(current) - wanted:\n        db.session.delete(current[uid])\n        Score.query.filter_by(project_id=pid, user_id=uid).delete()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "criterion_add",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def criterion_add(pid):\n    db.get_or_404(Project, pid)\n    form = CriterionForm()\n    if form.validate_on_submit():\n        db.session.add(Criterion(project_id=pid, name=form.name.data, max_mark=round(form.max_mark.data, 2)))\n        db.session.commit()\n        flash(\"Criterion added.\", \"success\")\n    else:\n        flash(first_error(form), \"error\")\n    return redirect(url_for(\"admin.project\", pid=pid))",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "criterion_delete",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def criterion_delete(pid, cid):\n    c = db.get_or_404(Criterion, cid)\n    if c.project_id != pid:\n        abort(404)\n    db.session.delete(c)\n    db.session.commit()\n    flash(\"Criterion removed.\", \"success\")\n    return redirect(url_for(\"admin.project\", pid=pid))\n@bp.post(\"/projects/<int:pid>/evaluate\")\n@perm_required(\"manage_projects\")",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def evaluate(pid):\n    p = db.get_or_404(Project, pid)\n    existing = {(s.user_id, s.criterion_id): s for s in Score.query.filter_by(project_id=pid)}\n    errors, updates = [], []\n    for m in p.members:\n        for c in p.criteria:\n            raw = request.form.get(f\"mark_{m.user_id}_{c.id}\", \"\").strip()\n            if raw == \"\":\n                updates.append((m, c, None))\n                continue",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "tasks",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def tasks():\n    return render_template(\"admin_tasks.html\", tasks=Task.query.order_by(Task.id.desc()).all())\n@bp.route(\"/tasks/new\", methods=[\"GET\", \"POST\"])\n@perm_required(\"manage_tasks\")\ndef task_new():\n    form = TaskForm()\n    form.assignees.choices = [(u.id, u.full_name) for u in approved_members()]\n    if form.validate_on_submit():\n        t = Task(title=form.title.data, description=form.description.data, due_date=form.due_date.data,\n                 created_by=current_user.id)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "task_new",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def task_new():\n    form = TaskForm()\n    form.assignees.choices = [(u.id, u.full_name) for u in approved_members()]\n    if form.validate_on_submit():\n        t = Task(title=form.title.data, description=form.description.data, due_date=form.due_date.data,\n                 created_by=current_user.id)\n        db.session.add(t)\n        db.session.flush()\n        for uid in form.assignees.data:\n            db.session.add(TaskAssignment(task_id=t.id, user_id=uid))",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "task",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def task(tid):\n    return render_template(\"admin_task.html\", t=db.get_or_404(Task, tid))\n@bp.post(\"/tasks/<int:tid>/delete\")\n@perm_required(\"manage_tasks\")\ndef task_delete(tid):\n    db.session.delete(db.get_or_404(Task, tid))\n    db.session.commit()\n    flash(\"Task deleted.\", \"success\")\n    return redirect(url_for(\"admin.tasks\"))\n# ---------- leaderboard ----------",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "task_delete",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def task_delete(tid):\n    db.session.delete(db.get_or_404(Task, tid))\n    db.session.commit()\n    flash(\"Task deleted.\", \"success\")\n    return redirect(url_for(\"admin.tasks\"))\n# ---------- leaderboard ----------\n@bp.route(\"/leaderboard\", methods=[\"GET\", \"POST\"])\n@perm_required(\"manage_leaderboard\")\ndef board():\n    rows = leaderboard()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "board",
+        "kind": 2,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "def board():\n    rows = leaderboard()\n    if request.method == \"POST\":\n        ids = {r[\"user\"].id for r in rows}\n        bonuses, bad = {}, []\n        for r in rows:\n            raw = request.form.get(f\"bonus_{r['user'].id}\", \"0\").strip() or \"0\"\n            try:\n                v = int(raw)\n                if not -10000 <= v <= 10000:",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "kind": 5,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "bp = Blueprint(\"admin\", __name__, url_prefix=\"/admin\")\ndef approved_members():\n    return User.query.filter_by(role=\"member\", status=\"approved\").order_by(func.lower(User.full_name)).all()\ndef first_error(form):\n    for errs in form.errors.values():\n        return errs[0]\n    return \"Please check the form.\"\n# ---------- dashboard: registrations + profile changes ----------\n@bp.route(\"/\")\n@perm_required()",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "peekOfCode": "def index():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"member.dashboard\" if current_user.role == \"member\" else \"admin.dashboard\"))\n    return render_template(\"index.html\")\n@bp.route(\"/healthz\")\ndef healthz():\n    return \"ok\"\n@bp.route(\"/login\", methods=[\"GET\", \"POST\"])\n@limiter.limit(\"10 per minute\", methods=[\"POST\"])\ndef login():",
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "healthz",
+        "kind": 2,
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "peekOfCode": "def healthz():\n    return \"ok\"\n@bp.route(\"/login\", methods=[\"GET\", \"POST\"])\n@limiter.limit(\"10 per minute\", methods=[\"POST\"])\ndef login():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"auth.index\"))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter(func.lower(User.email) == form.email.data.lower()).first()",
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"auth.index\"))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter(func.lower(User.email) == form.email.data.lower()).first()\n        if user and user.check_password(form.password.data):\n            if user.status == \"pending\":\n                flash(\"Your registration is waiting for admin approval. Please check back soon.\", \"info\")\n            elif user.status == \"rejected\":",
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "peekOfCode": "def logout():\n    logout_user()\n    flash(\"You have been logged out.\", \"info\")\n    return redirect(url_for(\"auth.login\"))\n@bp.route(\"/join\", methods=[\"GET\", \"POST\"])\n@limiter.limit(\"10 per hour\", methods=[\"POST\"])\ndef register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"auth.index\"))\n    form = RegisterForm()",
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "peekOfCode": "def register():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"auth.index\"))\n    form = RegisterForm()\n    form.member_title.choices = [(\"\", \"No role\")] + [\n        (role.name, role.name) for role in ClubRole.query.order_by(ClubRole.name).all()\n    ]\n    configure_location_choices(form)\n    if form.validate_on_submit():\n        data = process_image(form.image.data)",
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "avatar",
+        "kind": 2,
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "peekOfCode": "def avatar(uid):\n    u = User.query.options(undefer(User.image_data)).filter_by(id=uid).first_or_404()\n    if not u.has_image or not u.image_data:\n        abort(404)\n    resp = Response(u.image_data, mimetype=\"image/jpeg\")\n    resp.headers[\"Cache-Control\"] = \"private, max-age=86400\"\n    return resp",
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "kind": 5,
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "peekOfCode": "bp = Blueprint(\"auth\", __name__)\n@bp.route(\"/\")\ndef index():\n    if current_user.is_authenticated:\n        return redirect(url_for(\"member.dashboard\" if current_user.role == \"member\" else \"admin.dashboard\"))\n    return render_template(\"index.html\")\n@bp.route(\"/healthz\")\ndef healthz():\n    return \"ok\"\n@bp.route(\"/login\", methods=[\"GET\", \"POST\"])",
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "MultiCheckboxField",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class MultiCheckboxField(SelectMultipleField):\n    widget = widgets.ListWidget(prefix_label=False)\n    option_widget = widgets.CheckboxInput()\nclass LoginForm(FlaskForm):\n    email = StringField(\"Email\", filters=strip, validators=[DataRequired(), Email()])\n    password = PasswordField(\"Password\", validators=[DataRequired()])\nclass RegisterForm(FlaskForm):\n    full_name = StringField(\"Full name\", filters=strip, validators=[DataRequired(), Length(3, 120)])\n    member_title = SelectField(\"Club role\", choices=[], validators=[Optional()],\n                               description=\"Choose a role created by the club owner.\")",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "LoginForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    email = StringField(\"Email\", filters=strip, validators=[DataRequired(), Email()])\n    password = PasswordField(\"Password\", validators=[DataRequired()])\nclass RegisterForm(FlaskForm):\n    full_name = StringField(\"Full name\", filters=strip, validators=[DataRequired(), Length(3, 120)])\n    member_title = SelectField(\"Club role\", choices=[], validators=[Optional()],\n                               description=\"Choose a role created by the club owner.\")\n    place_of_work = StringField(\"Place of work\", filters=strip, validators=[Optional(), Length(max=150)])\n    wilaya = SelectField(\"Wilaya\", choices=[], validators=[DataRequired(\"Choose a wilaya.\")])\n    commune = SelectField(\"Commune\", choices=[], validators=[DataRequired(\"Choose a commune.\")])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class RegisterForm(FlaskForm):\n    full_name = StringField(\"Full name\", filters=strip, validators=[DataRequired(), Length(3, 120)])\n    member_title = SelectField(\"Club role\", choices=[], validators=[Optional()],\n                               description=\"Choose a role created by the club owner.\")\n    place_of_work = StringField(\"Place of work\", filters=strip, validators=[Optional(), Length(max=150)])\n    wilaya = SelectField(\"Wilaya\", choices=[], validators=[DataRequired(\"Choose a wilaya.\")])\n    commune = SelectField(\"Commune\", choices=[], validators=[DataRequired(\"Choose a commune.\")])\n    email = StringField(\"Email address\", filters=strip, validators=[DataRequired(), Email(), Length(max=255), unique_email])\n    phone = StringField(\"Phone number\", filters=strip, validators=[DataRequired(), PHONE])\n    equipment = TextAreaField(\"Equipment you own\", filters=strip, validators=[Length(max=1500)],",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class ProfileForm(FlaskForm):\n    full_name = StringField(\"Full name\", filters=strip, validators=[DataRequired(), Length(3, 120)],\n                            description=\"Changing your name needs admin approval.\")\n    member_title = SelectField(\"Club role\", choices=[], validators=[Optional()],\n                               description=\"Choose a role created by the club owner.\")\n    place_of_work = StringField(\"Place of work\", filters=strip, validators=[Optional(), Length(max=150)])\n    wilaya = SelectField(\"Wilaya\", choices=[], validators=[DataRequired(\"Choose a wilaya.\")])\n    commune = SelectField(\"Commune\", choices=[], validators=[DataRequired(\"Choose a commune.\")])\n    email = StringField(\"Email address\", filters=strip, validators=[DataRequired(), Email(), Length(max=255), unique_email],\n                        description=\"Changing your email needs admin approval.\")",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ChangePasswordForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class ChangePasswordForm(FlaskForm):\n    current = PasswordField(\"Current password\", validators=[DataRequired()])\n    password = PasswordField(\"New password\", validators=[DataRequired(), Length(8, 128, message=\"Use at least 8 characters.\")])\n    confirm = PasswordField(\"Confirm new password\", validators=[DataRequired(), EqualTo(\"password\", \"Passwords do not match.\")])\nclass ProjectForm(FlaskForm):\n    title = StringField(\"Project title\", filters=strip, validators=[DataRequired(), Length(3, 150)])\n    description = TextAreaField(\"Description\", filters=strip, validators=[Length(max=4000)])\nclass CriterionForm(FlaskForm):\n    name = StringField(\"Criterion\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    max_mark = FloatField(\"Maximum mark\", validators=[DataRequired(\"Enter a number.\"), NumberRange(0.5, 1000)])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class ProjectForm(FlaskForm):\n    title = StringField(\"Project title\", filters=strip, validators=[DataRequired(), Length(3, 150)])\n    description = TextAreaField(\"Description\", filters=strip, validators=[Length(max=4000)])\nclass CriterionForm(FlaskForm):\n    name = StringField(\"Criterion\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    max_mark = FloatField(\"Maximum mark\", validators=[DataRequired(\"Enter a number.\"), NumberRange(0.5, 1000)])\nclass TaskForm(FlaskForm):\n    title = StringField(\"Task title\", filters=strip, validators=[DataRequired(), Length(3, 150)])\n    description = TextAreaField(\"Instructions\", filters=strip, validators=[Length(max=4000)])\n    due_date = DateField(\"Due date (optional)\", validators=[Optional()])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "CriterionForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class CriterionForm(FlaskForm):\n    name = StringField(\"Criterion\", filters=strip, validators=[DataRequired(), Length(2, 120)])\n    max_mark = FloatField(\"Maximum mark\", validators=[DataRequired(\"Enter a number.\"), NumberRange(0.5, 1000)])\nclass TaskForm(FlaskForm):\n    title = StringField(\"Task title\", filters=strip, validators=[DataRequired(), Length(3, 150)])\n    description = TextAreaField(\"Instructions\", filters=strip, validators=[Length(max=4000)])\n    due_date = DateField(\"Due date (optional)\", validators=[Optional()])\n    assignees = MultiCheckboxField(\"Send to\", coerce=int, validators=[DataRequired(\"Pick at least one member.\")])\nclass ResponseForm(FlaskForm):\n    message = TextAreaField(\"Your reply or progress update\", filters=strip,",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "TaskForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class TaskForm(FlaskForm):\n    title = StringField(\"Task title\", filters=strip, validators=[DataRequired(), Length(3, 150)])\n    description = TextAreaField(\"Instructions\", filters=strip, validators=[Length(max=4000)])\n    due_date = DateField(\"Due date (optional)\", validators=[Optional()])\n    assignees = MultiCheckboxField(\"Send to\", coerce=int, validators=[DataRequired(\"Pick at least one member.\")])\nclass ResponseForm(FlaskForm):\n    message = TextAreaField(\"Your reply or progress update\", filters=strip,\n                            validators=[DataRequired(), Length(2, 3000)])\n    status = SelectField(\"Progress\", choices=[(\"in_progress\", \"In progress\"), (\"done\", \"Done\"), (\"open\", \"Not started\")])\nclass AdminForm(FlaskForm):",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ResponseForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class ResponseForm(FlaskForm):\n    message = TextAreaField(\"Your reply or progress update\", filters=strip,\n                            validators=[DataRequired(), Length(2, 3000)])\n    status = SelectField(\"Progress\", choices=[(\"in_progress\", \"In progress\"), (\"done\", \"Done\"), (\"open\", \"Not started\")])\nclass AdminForm(FlaskForm):\n    full_name = StringField(\"Full name\", filters=strip, validators=[DataRequired(), Length(3, 120)])\n    email = StringField(\"Email address\", filters=strip, validators=[DataRequired(), Email(), Length(max=255), unique_email])\n    phone = StringField(\"Phone number (optional)\", filters=strip, validators=[Optional(), PHONE])\n    password = PasswordField(\"Password\", validators=[Optional(), Length(8, 128, message=\"Use at least 8 characters.\")],\n                             description=\"Required for new admins. When editing, leave empty to keep the current password.\")",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "AdminForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class AdminForm(FlaskForm):\n    full_name = StringField(\"Full name\", filters=strip, validators=[DataRequired(), Length(3, 120)])\n    email = StringField(\"Email address\", filters=strip, validators=[DataRequired(), Email(), Length(max=255), unique_email])\n    phone = StringField(\"Phone number (optional)\", filters=strip, validators=[Optional(), PHONE])\n    password = PasswordField(\"Password\", validators=[Optional(), Length(8, 128, message=\"Use at least 8 characters.\")],\n                             description=\"Required for new admins. When editing, leave empty to keep the current password.\")\n    approve_members = BooleanField(PERMISSIONS[\"approve_members\"])\n    manage_projects = BooleanField(PERMISSIONS[\"manage_projects\"])\n    manage_tasks = BooleanField(PERMISSIONS[\"manage_tasks\"])\n    manage_leaderboard = BooleanField(PERMISSIONS[\"manage_leaderboard\"])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "SettingsForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class SettingsForm(FlaskForm):\n    club_name = StringField(\"Club name\", filters=strip, validators=[DataRequired(), Length(2, 60)])\n    logo = FileField(\"Club logo\", validators=[IMAGE], description=\"Optional JPG, PNG or WebP image.\")\n    remove_logo = BooleanField(\"Remove current logo\")\nclass ClubRoleForm(FlaskForm):\n    name = StringField(\"Role name\", filters=strip, validators=[DataRequired(), Length(2, 80)])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "ClubRoleForm",
+        "kind": 6,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "class ClubRoleForm(FlaskForm):\n    name = StringField(\"Role name\", filters=strip, validators=[DataRequired(), Length(2, 80)])",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "unique_email",
+        "kind": 2,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "def unique_email(form, field):\n    q = User.query.filter(func.lower(User.email) == field.data.strip().lower())\n    if getattr(form, \"user_id\", None):\n        q = q.filter(User.id != form.user_id)\n    if q.first():\n        raise ValidationError(\"This email address is already registered.\")\nclass MultiCheckboxField(SelectMultipleField):\n    widget = widgets.ListWidget(prefix_label=False)\n    option_widget = widgets.CheckboxInput()\nclass LoginForm(FlaskForm):",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "club_role_choices",
+        "kind": 2,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "def club_role_choices():\n    return [(\"\", \"No role\")] + [(role.name, role.name) for role in ClubRole.query.order_by(ClubRole.name).all()]\ndef configure_location_choices(form):\n    locations = algeria_locations()\n    form.wilaya.choices = [(\"\", \"Select wilaya\")] + [\n        (wilaya_code(item[\"code\"]), item[\"name\"]) for item in locations\n    ]\n    selected_wilaya = wilaya_code(form.wilaya.data)\n    selected = next((item for item in locations if wilaya_code(item[\"code\"]) == selected_wilaya), None)\n    communes = selected[\"communes\"] if selected else []",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "configure_location_choices",
+        "kind": 2,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "def configure_location_choices(form):\n    locations = algeria_locations()\n    form.wilaya.choices = [(\"\", \"Select wilaya\")] + [\n        (wilaya_code(item[\"code\"]), item[\"name\"]) for item in locations\n    ]\n    selected_wilaya = wilaya_code(form.wilaya.data)\n    selected = next((item for item in locations if wilaya_code(item[\"code\"]) == selected_wilaya), None)\n    communes = selected[\"communes\"] if selected else []\n    form.commune.choices = [(\"\", \"Select commune\")] + [\n        (commune[\"name\"], commune[\"name\"]) for commune in communes",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "strip",
+        "kind": 5,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "strip = [lambda v: v.strip() if isinstance(v, str) else v]\nPHONE = Regexp(r\"^\\+?[0-9 ()\\-]{7,20}$\", message=\"Enter a valid phone number, e.g. +213 555 12 34 56.\")\nIMAGE = FileAllowed([\"jpg\", \"jpeg\", \"png\", \"webp\"], \"Images only (JPG, PNG or WebP).\")\ndef unique_email(form, field):\n    q = User.query.filter(func.lower(User.email) == field.data.strip().lower())\n    if getattr(form, \"user_id\", None):\n        q = q.filter(User.id != form.user_id)\n    if q.first():\n        raise ValidationError(\"This email address is already registered.\")\nclass MultiCheckboxField(SelectMultipleField):",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "PHONE",
+        "kind": 5,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "PHONE = Regexp(r\"^\\+?[0-9 ()\\-]{7,20}$\", message=\"Enter a valid phone number, e.g. +213 555 12 34 56.\")\nIMAGE = FileAllowed([\"jpg\", \"jpeg\", \"png\", \"webp\"], \"Images only (JPG, PNG or WebP).\")\ndef unique_email(form, field):\n    q = User.query.filter(func.lower(User.email) == field.data.strip().lower())\n    if getattr(form, \"user_id\", None):\n        q = q.filter(User.id != form.user_id)\n    if q.first():\n        raise ValidationError(\"This email address is already registered.\")\nclass MultiCheckboxField(SelectMultipleField):\n    widget = widgets.ListWidget(prefix_label=False)",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "IMAGE",
+        "kind": 5,
+        "importPath": "app.forms",
+        "description": "app.forms",
+        "peekOfCode": "IMAGE = FileAllowed([\"jpg\", \"jpeg\", \"png\", \"webp\"], \"Images only (JPG, PNG or WebP).\")\ndef unique_email(form, field):\n    q = User.query.filter(func.lower(User.email) == field.data.strip().lower())\n    if getattr(form, \"user_id\", None):\n        q = q.filter(User.id != form.user_id)\n    if q.first():\n        raise ValidationError(\"This email address is already registered.\")\nclass MultiCheckboxField(SelectMultipleField):\n    widget = widgets.ListWidget(prefix_label=False)\n    option_widget = widgets.CheckboxInput()",
+        "detail": "app.forms",
+        "documentation": {}
+    },
+    {
+        "label": "algeria_locations",
+        "kind": 2,
+        "importPath": "app.locations",
+        "description": "app.locations",
+        "peekOfCode": "def algeria_locations():\n    path = Path(__file__).parent / \"static\" / \"dz_locations.json\"\n    return json.loads(path.read_text(encoding=\"utf-8\"))\ndef wilaya_code(value):\n    return str(value or \"\").zfill(2)",
+        "detail": "app.locations",
+        "documentation": {}
+    },
+    {
+        "label": "wilaya_code",
+        "kind": 2,
+        "importPath": "app.locations",
+        "description": "app.locations",
+        "peekOfCode": "def wilaya_code(value):\n    return str(value or \"\").zfill(2)",
+        "detail": "app.locations",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def dashboard():\n    open_tasks = TaskAssignment.query.filter(TaskAssignment.user_id == current_user.id,\n                                             TaskAssignment.status != \"done\").order_by(TaskAssignment.id.desc()).all()\n    return render_template(\"member_dashboard.html\", open_tasks=open_tasks, rank=member_rank(current_user.id),\n                           project_count=ProjectMember.query.filter_by(user_id=current_user.id).count())\n@bp.route(\"/profile\", methods=[\"GET\", \"POST\"])\n@role_required(\"member\")\ndef profile():\n    u = current_user._get_current_object()\n    form = ProfileForm(obj=u, user_id=u.id)",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "profile",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def profile():\n    u = current_user._get_current_object()\n    form = ProfileForm(obj=u, user_id=u.id)\n    configure_location_choices(form)\n    if form.validate_on_submit():\n        data = None\n        if form.image.data:\n            data = process_image(form.image.data)\n            if data is None:\n                form.image.errors.append(\"We couldn't read that image. Try a different JPG or PNG.\")",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "password",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def password():\n    form = ChangePasswordForm()\n    if form.validate_on_submit():\n        if not current_user.check_password(form.current.data):\n            form.current.errors.append(\"That is not your current password.\")\n        else:\n            current_user.set_password(form.password.data)\n            db.session.commit()\n            flash(\"Password updated.\", \"success\")\n            return redirect(url_for(\"auth.index\"))",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "tasks",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def tasks():\n    items = TaskAssignment.query.filter_by(user_id=current_user.id).order_by(TaskAssignment.id.desc()).all()\n    return render_template(\"member_tasks.html\", items=items)\n@bp.route(\"/tasks/<int:aid>\", methods=[\"GET\", \"POST\"])\n@role_required(\"member\")\ndef task(aid):\n    a = db.get_or_404(TaskAssignment, aid)\n    if a.user_id != current_user.id:\n        abort(403)\n    form = ResponseForm(status=a.status if a.status != \"open\" else \"in_progress\")",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "task",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def task(aid):\n    a = db.get_or_404(TaskAssignment, aid)\n    if a.user_id != current_user.id:\n        abort(403)\n    form = ResponseForm(status=a.status if a.status != \"open\" else \"in_progress\")\n    if form.validate_on_submit():\n        db.session.add(TaskResponse(assignment_id=a.id, message=form.message.data, status=form.status.data))\n        a.status, a.updated_at = form.status.data, datetime.utcnow()\n        db.session.commit()\n        flash(\"Your update was sent.\", \"success\")",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "projects",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def projects():\n    items = ProjectMember.query.filter_by(user_id=current_user.id).order_by(ProjectMember.id.desc()).all()\n    return render_template(\"member_projects.html\", items=items)\n@bp.route(\"/projects/<int:pid>\")\n@role_required(\"member\")\ndef project(pid):\n    pm = ProjectMember.query.filter_by(project_id=pid, user_id=current_user.id).first_or_404()\n    return render_template(\"member_project.html\", pm=pm)\n@bp.route(\"/leaderboard\")\n@login_required",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "project",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def project(pid):\n    pm = ProjectMember.query.filter_by(project_id=pid, user_id=current_user.id).first_or_404()\n    return render_template(\"member_project.html\", pm=pm)\n@bp.route(\"/leaderboard\")\n@login_required\ndef board():\n    return render_template(\"leaderboard.html\", rows=leaderboard())",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "board",
+        "kind": 2,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "def board():\n    return render_template(\"leaderboard.html\", rows=leaderboard())",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "kind": 5,
+        "importPath": "app.member",
+        "description": "app.member",
+        "peekOfCode": "bp = Blueprint(\"member\", __name__)\n@bp.route(\"/dashboard\")\n@role_required(\"member\")\ndef dashboard():\n    open_tasks = TaskAssignment.query.filter(TaskAssignment.user_id == current_user.id,\n                                             TaskAssignment.status != \"done\").order_by(TaskAssignment.id.desc()).all()\n    return render_template(\"member_dashboard.html\", open_tasks=open_tasks, rank=member_rank(current_user.id),\n                           project_count=ProjectMember.query.filter_by(user_id=current_user.id).count())\n@bp.route(\"/profile\", methods=[\"GET\", \"POST\"])\n@role_required(\"member\")",
+        "detail": "app.member",
+        "documentation": {}
+    },
+    {
+        "label": "ClubRole",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class ClubRole(db.Model):\n    __tablename__ = \"club_roles\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False, unique=True)\nclass User(UserMixin, db.Model):\n    __tablename__ = \"users\"\n    id = db.Column(db.Integer, primary_key=True)\n    full_name = db.Column(db.String(120), nullable=False)\n    email = db.Column(db.String(255), nullable=False, unique=True, index=True)\n    phone = db.Column(db.String(30), default=\"\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class User(UserMixin, db.Model):\n    __tablename__ = \"users\"\n    id = db.Column(db.Integer, primary_key=True)\n    full_name = db.Column(db.String(120), nullable=False)\n    email = db.Column(db.String(255), nullable=False, unique=True, index=True)\n    phone = db.Column(db.String(30), default=\"\")\n    address = db.Column(db.String(255), default=\"\")\n    place_of_work = db.Column(db.String(150), default=\"\")\n    wilaya = db.Column(db.String(2), default=\"\")\n    commune = db.Column(db.String(100), default=\"\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Project",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Project(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(150), nullable=False)\n    description = db.Column(db.Text, default=\"\")\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\n    members = db.relationship(\"ProjectMember\", back_populates=\"project\", cascade=\"all, delete-orphan\")\n    criteria = db.relationship(\"Criterion\", back_populates=\"project\", cascade=\"all, delete-orphan\",\n                               order_by=\"Criterion.id\")\n    scores = db.relationship(\"Score\", back_populates=\"project\", cascade=\"all, delete-orphan\")\nclass GlobalCriterion(db.Model):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "GlobalCriterion",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class GlobalCriterion(db.Model):\n    __tablename__ = \"global_criteria\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(120), nullable=False)\n    max_mark = db.Column(db.Float, nullable=False)\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\nclass ProjectMember(db.Model):\n    __table_args__ = (db.UniqueConstraint(\"project_id\", \"user_id\"),)\n    id = db.Column(db.Integer, primary_key=True)\n    project_id = db.Column(db.Integer, db.ForeignKey(\"project.id\"), nullable=False)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectMember",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class ProjectMember(db.Model):\n    __table_args__ = (db.UniqueConstraint(\"project_id\", \"user_id\"),)\n    id = db.Column(db.Integer, primary_key=True)\n    project_id = db.Column(db.Integer, db.ForeignKey(\"project.id\"), nullable=False)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"), nullable=False)\n    contribution = db.Column(db.Text, default=\"\")\n    note = db.Column(db.Text, default=\"\")\n    project = db.relationship(\"Project\", back_populates=\"members\")\n    user = db.relationship(\"User\", back_populates=\"memberships\")\n    def score_rows(self):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Criterion",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Criterion(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    project_id = db.Column(db.Integer, db.ForeignKey(\"project.id\"), nullable=False)\n    global_id = db.Column(db.Integer, db.ForeignKey(\"global_criteria.id\"), nullable=True, index=True)\n    name = db.Column(db.String(120), nullable=False)\n    max_mark = db.Column(db.Float, nullable=False)\n    project = db.relationship(\"Project\", back_populates=\"criteria\")\n    global_source = db.relationship(\"GlobalCriterion\")\n    scores = db.relationship(\"Score\", back_populates=\"criterion\", cascade=\"all, delete-orphan\")\nclass Score(db.Model):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Score",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Score(db.Model):\n    __table_args__ = (db.UniqueConstraint(\"project_id\", \"user_id\", \"criterion_id\"),)\n    id = db.Column(db.Integer, primary_key=True)\n    project_id = db.Column(db.Integer, db.ForeignKey(\"project.id\"), nullable=False)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"), nullable=False)\n    criterion_id = db.Column(db.Integer, db.ForeignKey(\"criterion.id\"), nullable=False)\n    mark = db.Column(db.Float, nullable=False)\n    project = db.relationship(\"Project\", back_populates=\"scores\")\n    user = db.relationship(\"User\", back_populates=\"scores\")\n    criterion = db.relationship(\"Criterion\", back_populates=\"scores\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Task",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Task(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(150), nullable=False)\n    description = db.Column(db.Text, default=\"\")\n    due_date = db.Column(db.Date)\n    created_by = db.Column(db.Integer)\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\n    assignments = db.relationship(\"TaskAssignment\", back_populates=\"task\", cascade=\"all, delete-orphan\")\n    @property\n    def sender_name(self):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "TaskAssignment",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class TaskAssignment(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    task_id = db.Column(db.Integer, db.ForeignKey(\"task.id\"), nullable=False)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"), nullable=False)\n    status = db.Column(db.String(12), default=\"open\")  # open|in_progress|done\n    updated_at = db.Column(db.DateTime, default=datetime.utcnow)\n    task = db.relationship(\"Task\", back_populates=\"assignments\")\n    user = db.relationship(\"User\", back_populates=\"assignments\")\n    responses = db.relationship(\"TaskResponse\", back_populates=\"assignment\", cascade=\"all, delete-orphan\",\n                                order_by=\"TaskResponse.id\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "TaskResponse",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class TaskResponse(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    assignment_id = db.Column(db.Integer, db.ForeignKey(\"task_assignment.id\"), nullable=False)\n    message = db.Column(db.Text, nullable=False)\n    status = db.Column(db.String(12), default=\"open\")\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\n    assignment = db.relationship(\"TaskAssignment\", back_populates=\"responses\")\nclass PendingChange(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"), nullable=False)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "PendingChange",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class PendingChange(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"), nullable=False)\n    field = db.Column(db.String(20), nullable=False)  # full_name|email\n    new_value = db.Column(db.String(255), nullable=False)\n    status = db.Column(db.String(10), default=\"pending\")\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\n    user = db.relationship(\"User\", back_populates=\"changes\")\nclass Setting(db.Model):\n    key = db.Column(db.String(50), primary_key=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Setting",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Setting(db.Model):\n    key = db.Column(db.String(50), primary_key=True)\n    value = db.Column(db.Text)\ndef get_setting(key, default=None):\n    s = db.session.get(Setting, key)\n    return s.value if s and s.value else default\ndef set_setting(key, value):\n    s = db.session.get(Setting, key)\n    if s:\n        s.value = value",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "load_user",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def load_user(uid):\n    u = db.session.get(User, int(uid))\n    return u if u and u.status == \"approved\" else None\nclass Project(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(150), nullable=False)\n    description = db.Column(db.Text, default=\"\")\n    created_at = db.Column(db.DateTime, default=datetime.utcnow)\n    members = db.relationship(\"ProjectMember\", back_populates=\"project\", cascade=\"all, delete-orphan\")\n    criteria = db.relationship(\"Criterion\", back_populates=\"project\", cascade=\"all, delete-orphan\",",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "get_setting",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def get_setting(key, default=None):\n    s = db.session.get(Setting, key)\n    return s.value if s and s.value else default\ndef set_setting(key, value):\n    s = db.session.get(Setting, key)\n    if s:\n        s.value = value\n    else:\n        db.session.add(Setting(key=key, value=value))\n    db.session.commit()",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "set_setting",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def set_setting(key, value):\n    s = db.session.get(Setting, key)\n    if s:\n        s.value = value\n    else:\n        db.session.add(Setting(key=key, value=value))\n    db.session.commit()\ndef leaderboard():\n    \"\"\"Ranked list: marks + bonus points; the admin-chosen first place is pinned to #1.\"\"\"\n    members = User.query.filter_by(role=\"member\", status=\"approved\").all()",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "leaderboard",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def leaderboard():\n    \"\"\"Ranked list: marks + bonus points; the admin-chosen first place is pinned to #1.\"\"\"\n    members = User.query.filter_by(role=\"member\", status=\"approved\").all()\n    totals = dict(db.session.query(Score.user_id, db.func.sum(Score.mark)).group_by(Score.user_id).all())\n    rows = [(u, round((totals.get(u.id) or 0) + (u.bonus_points or 0), 2)) for u in members]\n    rows.sort(key=lambda r: (-r[1], r[0].full_name.lower()))\n    first = get_setting(\"first_place_user_id\")\n    if first:\n        idx = next((i for i, r in enumerate(rows) if str(r[0].id) == first), None)\n        if idx:",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "member_rank",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def member_rank(uid):\n    return next((r for r in leaderboard() if r[\"user\"].id == uid), None)\ndef make_owner(name, email, password):\n    email = email.strip().lower()\n    u = User.query.filter(db.func.lower(User.email) == email).first() or User(email=email)\n    u.full_name, u.role, u.status = name.strip(), \"owner\", \"approved\"\n    u.set_password(password)\n    db.session.add(u)\n    db.session.commit()\ndef seed_owner():",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "make_owner",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def make_owner(name, email, password):\n    email = email.strip().lower()\n    u = User.query.filter(db.func.lower(User.email) == email).first() or User(email=email)\n    u.full_name, u.role, u.status = name.strip(), \"owner\", \"approved\"\n    u.set_password(password)\n    db.session.add(u)\n    db.session.commit()\ndef seed_owner():\n    \"\"\"Create the first Owner from env vars (useful on hosts without a shell).\"\"\"\n    email, pw = os.environ.get(\"OWNER_EMAIL\"), os.environ.get(\"OWNER_PASSWORD\")",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "seed_owner",
+        "kind": 2,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "def seed_owner():\n    \"\"\"Create the first Owner from env vars (useful on hosts without a shell).\"\"\"\n    email, pw = os.environ.get(\"OWNER_EMAIL\"), os.environ.get(\"OWNER_PASSWORD\")\n    if email and pw and not User.query.filter_by(role=\"owner\").first():\n        make_owner(os.environ.get(\"OWNER_NAME\", \"Club Owner\"), email, pw)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "PERMISSIONS",
+        "kind": 5,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "PERMISSIONS = {\n    \"approve_members\": \"Approve or reject registrations and profile changes\",\n    \"manage_projects\": \"Create projects, scoring criteria and marks\",\n    \"manage_tasks\": \"Send tasks and read member replies\",\n    \"manage_leaderboard\": \"Manage the leaderboard and first place\",\n}\nclass ClubRole(db.Model):\n    __tablename__ = \"club_roles\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False, unique=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "roles",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def roles():\n    form = ClubRoleForm()\n    if form.validate_on_submit():\n        name = form.name.data\n        duplicate = ClubRole.query.filter(db.func.lower(ClubRole.name) == name.lower()).first()\n        if duplicate:\n            form.name.errors.append(\"That club role already exists.\")\n        else:\n            db.session.add(ClubRole(name=name))\n            db.session.commit()",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "role_delete",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def role_delete(role_id):\n    role = db.get_or_404(ClubRole, role_id)\n    User.query.filter_by(member_title=role.name).update({User.member_title: \"\"})\n    db.session.delete(role)\n    db.session.commit()\n    flash(\"Club role removed. Members assigned to it now have no role.\", \"success\")\n    return redirect(url_for(\"owner.roles\"))\n@bp.route(\"/admins\")\n@role_required(\"owner\")\ndef admins():",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "admins",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def admins():\n    return render_template(\"owner_admins.html\", admins=User.query.filter_by(role=\"admin\").order_by(User.full_name).all())\n@bp.route(\"/admins/new\", methods=[\"GET\", \"POST\"])\n@role_required(\"owner\")\ndef admin_new():\n    form = AdminForm()\n    if form.validate_on_submit():\n        if not form.password.data:\n            form.password.errors.append(\"Set a password for the new admin.\")\n        else:",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "admin_new",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def admin_new():\n    form = AdminForm()\n    if form.validate_on_submit():\n        if not form.password.data:\n            form.password.errors.append(\"Set a password for the new admin.\")\n        else:\n            a = User(role=\"admin\", status=\"approved\", full_name=form.full_name.data,\n                     email=form.email.data.lower(), phone=form.phone.data or \"\")\n            for p in PERMISSIONS:\n                setattr(a, p, getattr(form, p).data)",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "admin_edit",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def admin_edit(uid):\n    a = db.get_or_404(User, uid)\n    if a.role != \"admin\":\n        abort(404)\n    form = AdminForm(obj=a, user_id=a.id)\n    if form.validate_on_submit():\n        a.full_name, a.email, a.phone = form.full_name.data, form.email.data.lower(), form.phone.data or \"\"\n        for p in PERMISSIONS:\n            setattr(a, p, getattr(form, p).data)\n        if form.password.data:",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "admin_delete",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def admin_delete(uid):\n    a = db.get_or_404(User, uid)\n    if a.role != \"admin\":\n        abort(404)\n    db.session.delete(a)\n    db.session.commit()\n    flash(\"Admin removed.\", \"success\")\n    return redirect(url_for(\"owner.admins\"))\n@bp.route(\"/settings\", methods=[\"GET\", \"POST\"])\n@role_required(\"owner\")",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def settings():\n    form = SettingsForm(club_name=get_setting(\"club_name\", \"ClubHub\"))\n    if form.validate_on_submit():\n        logo_data = process_logo(form.logo.data) if form.logo.data else None\n        if form.logo.data and logo_data is None:\n            form.logo.errors.append(\"We couldn't read that image. Try a different JPG, PNG or WebP file.\")\n        if not form.logo.errors:\n            set_setting(\"club_name\", form.club_name.data)\n            if logo_data:\n                set_setting(\"club_logo\", base64.b64encode(logo_data).decode(\"ascii\"))",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "club_logo",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def club_logo():\n    encoded = get_setting(\"club_logo\")\n    if not encoded:\n        abort(404)\n    try:\n        data = base64.b64decode(encoded, validate=True)\n    except (ValueError, base64.binascii.Error):\n        abort(404)\n    response = Response(data, mimetype=\"image/png\")\n    response.headers[\"Cache-Control\"] = \"public, max-age=86400\"",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "global_criterion_add",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def global_criterion_add():\n    form = CriterionForm()\n    if form.validate_on_submit():\n        global_criterion = GlobalCriterion(name=form.name.data, max_mark=round(form.max_mark.data, 2))\n        db.session.add(global_criterion)\n        db.session.flush()\n        for project in Project.query.all():\n            db.session.add(Criterion(project_id=project.id, global_id=global_criterion.id,\n                                     name=global_criterion.name, max_mark=global_criterion.max_mark))\n        db.session.commit()",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "global_criterion_edit",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def global_criterion_edit(criterion_id):\n    global_criterion = db.get_or_404(GlobalCriterion, criterion_id)\n    form = CriterionForm()\n    if form.validate_on_submit():\n        name, max_mark = form.name.data, round(form.max_mark.data, 2)\n        highest_mark = (db.session.query(db.func.max(Score.mark))\n                        .join(Criterion, Criterion.id == Score.criterion_id)\n                        .filter(Criterion.global_id == global_criterion.id).scalar())\n        if highest_mark is not None and max_mark < highest_mark:\n            flash(f\"Maximum mark cannot be lower than an existing mark ({highest_mark:g}).\", \"error\")",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "global_criterion_delete",
+        "kind": 2,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "def global_criterion_delete(criterion_id):\n    global_criterion = db.get_or_404(GlobalCriterion, criterion_id)\n    has_marks = (db.session.query(Score.id).join(Criterion, Criterion.id == Score.criterion_id)\n                 .filter(Criterion.global_id == global_criterion.id).first())\n    if has_marks:\n        flash(\"This criterion has saved marks. Remove those marks from projects before deleting it.\", \"error\")\n    else:\n        Criterion.query.filter_by(global_id=global_criterion.id).delete(synchronize_session=False)\n        db.session.delete(global_criterion)\n        db.session.commit()",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "kind": 5,
+        "importPath": "app.owner",
+        "description": "app.owner",
+        "peekOfCode": "bp = Blueprint(\"owner\", __name__, url_prefix=\"/owner\")\n@bp.route(\"/roles\", methods=[\"GET\", \"POST\"])\n@role_required(\"owner\")\ndef roles():\n    form = ClubRoleForm()\n    if form.validate_on_submit():\n        name = form.name.data\n        duplicate = ClubRole.query.filter(db.func.lower(ClubRole.name) == name.lower()).first()\n        if duplicate:\n            form.name.errors.append(\"That club role already exists.\")",
+        "detail": "app.owner",
+        "documentation": {}
+    },
+    {
+        "label": "role_required",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def role_required(*roles):\n    def deco(f):\n        @wraps(f)\n        def wrapper(*a, **k):\n            if not current_user.is_authenticated:\n                return login_manager.unauthorized()\n            if current_user.role not in roles:\n                abort(403)\n            return f(*a, **k)\n        return wrapper",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "perm_required",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def perm_required(perm=None):\n    \"\"\"Admins (with the given permission) and the Owner (always).\"\"\"\n    def deco(f):\n        @wraps(f)\n        def wrapper(*a, **k):\n            if not current_user.is_authenticated:\n                return login_manager.unauthorized()\n            if current_user.role not in (\"admin\", \"owner\"):\n                abort(403)\n            if perm and not current_user.has_perm(perm):",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "parse_equipment",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def parse_equipment(text):\n    items = []\n    for part in re.split(r\"[\\n,;]+\", text or \"\"):\n        p = part.strip()[:60]\n        if p and p.lower() not in [i.lower() for i in items]:\n            items.append(p)\n    return items[:30]\ndef process_image(file_storage):\n    \"\"\"Validate an upload, square-crop to 400px and re-encode as JPEG. Returns bytes or None.\"\"\"\n    try:",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "process_image",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def process_image(file_storage):\n    \"\"\"Validate an upload, square-crop to 400px and re-encode as JPEG. Returns bytes or None.\"\"\"\n    try:\n        Image.open(file_storage.stream).verify()\n        file_storage.stream.seek(0)\n        img = ImageOps.exif_transpose(Image.open(file_storage.stream)).convert(\"RGB\")\n        img = ImageOps.fit(img, (400, 400))\n        buf = BytesIO()\n        img.save(buf, \"JPEG\", quality=85, optimize=True)\n        return buf.getvalue()",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "process_logo",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def process_logo(file_storage):\n    \"\"\"Validate and resize a club logo without cropping its aspect ratio or transparency.\"\"\"\n    try:\n        Image.open(file_storage.stream).verify()\n        file_storage.stream.seek(0)\n        img = ImageOps.exif_transpose(Image.open(file_storage.stream)).convert(\"RGBA\")\n        img.thumbnail((800, 400), Image.Resampling.LANCZOS)\n        buf = BytesIO()\n        img.save(buf, \"PNG\", optimize=True)\n        return buf.getvalue()",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "Image.MAX_IMAGE_PIXELS",
+        "kind": 5,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "Image.MAX_IMAGE_PIXELS = 30_000_000\ndef role_required(*roles):\n    def deco(f):\n        @wraps(f)\n        def wrapper(*a, **k):\n            if not current_user.is_authenticated:\n                return login_manager.unauthorized()\n            if current_user.role not in roles:\n                abort(403)\n            return f(*a, **k)",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "wsgi",
+        "description": "wsgi",
+        "peekOfCode": "app = create_app()",
+        "detail": "wsgi",
+        "documentation": {}
+    }
+]

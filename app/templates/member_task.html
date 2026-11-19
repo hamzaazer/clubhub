@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% from "_m.html" import field, badge %}
+{% block content %}
+<section class="card"><h1>{{ a.task.title }}</h1>
+<p class="muted">From {{ a.task.sender_name }}{% if a.task.due_date %} · due {{ a.task.due_date.strftime('%d %b %Y') }}{% endif %} · {{ badge(a.status) }}</p>
+<p class="pre">{{ a.task.description or 'No extra instructions.' }}</p></section>
+<section class="card"><h2>Your updates</h2>
+{% for r in a.responses %}<div class="msg"><small class="muted">{{ r.created_at.strftime('%d %b %Y, %H:%M') }} · {{ r.status|replace('_',' ') }}</small><p class="pre">{{ r.message }}</p></div>
+{% else %}<p class="muted">You haven't replied yet.</p>{% endfor %}
+<form method="post">{{ form.hidden_tag() }}{{ field(form.message) }}{{ field(form.status) }}<div class="actions"><button class="btn">Send update</button><a class="btn ghost" href="{{ url_for('member.tasks') }}">Back</a></div></form></section>
+{% endblock %}

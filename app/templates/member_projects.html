@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}<h1>My projects</h1><section class="card">
+{% for pm in items %}{% set t = pm.totals() %}<a class="item" href="{{ url_for('member.project', pid=pm.project_id) }}"><span>{{ pm.project.title }}</span><b>{% if t[1] %}{{ t[0]|num }} / {{ t[1]|num }}{% else %}–{% endif %}</b></a>
+{% else %}<p class="muted">You haven't been added to a project yet.</p>{% endfor %}</section>{% endblock %}

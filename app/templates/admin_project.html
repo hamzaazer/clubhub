@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% from "_m.html" import field, csrf, avatar, post %}
+{% block content %}
+<section class="card"><div class="row between"><h1>{{ p.title }}</h1><span class="actions"><a class="btn small ghost" href="{{ url_for('admin.project_edit', pid=p.id) }}">Edit</a>{{ post(url_for('admin.project_delete', pid=p.id), 'Delete', 'btn small danger', 'Delete this project and all its marks?') }}</span></div><p class="pre">{{ p.description }}</p></section>
+
+<section class="card"><h2>Participants</h2>
+<form method="post" action="{{ url_for('admin.set_participants', pid=p.id) }}">{{ csrf() }}
+<ul class="checks">{% for u in candidates %}<li><label class="check"><input type="checkbox" name="members" value="{{ u.id }}"{% if u.id in pm_ids %} checked{% endif %}> <span>{{ u.full_name }}</span></label></li>
+{% else %}<li class="muted">No approved members yet.</li>{% endfor %}</ul>
+<div class="actions"><button class="btn small">Save participants</button></div></form></section>
+
+<section class="card"><h2>Scoring criteria</h2>
+{% for c in p.criteria %}<div class="item"><span>{{ c.name }} <small class="muted">· max {{ c.max_mark|num }}{% if c.global_id %} · Global{% endif %}</small></span>{% if c.global_id %}<small class="muted">Managed in Settings</small>{% else %}{{ post(url_for('admin.criterion_delete', pid=p.id, cid=c.id), 'Remove', 'btn small ghost', 'Remove this criterion and its marks?') }}{% endif %}</div>
+{% else %}<p class="muted">Add criteria such as “Composition” (max 10).</p>{% endfor %}
+<form method="post" action="{{ url_for('admin.criterion_add', pid=p.id) }}" class="inline-form">{{ cform.hidden_tag() }}{{ field(cform.name) }}{{ field(cform.max_mark) }}<div class="actions"><button class="btn small">Add criterion</button></div></form></section>
+
+{% if p.members %}
+<form method="post" action="{{ url_for('admin.evaluate', pid=p.id) }}">{{ csrf() }}
+<h2>Marks, contributions and notes</h2>
+{% for m in p.members %}<section class="card"><div class="row">{{ avatar(m.user) }}<b><a href="{{ url_for('admin.member', uid=m.user_id) }}">{{ m.user.full_name }}</a></b></div>
+{% if p.criteria %}<div class="marks">{% for c in p.criteria %}<label>{{ c.name }} <small class="muted">/ {{ c.max_mark|num }}</small>
+<input type="number" inputmode="decimal" step="0.25" min="0" max="{{ c.max_mark }}" name="mark_{{ m.user_id }}_{{ c.id }}" value="{{ marks.get((m.user_id, c.id))|num }}"></label>{% endfor %}</div>{% endif %}
+<div class="field"><label for="contribution_{{ m.user_id }}">Contribution</label><textarea id="contribution_{{ m.user_id }}" name="contribution_{{ m.user_id }}" maxlength="3000">{{ m.contribution }}</textarea></div>
+<div class="field"><label for="note_{{ m.user_id }}">Note for this participant</label><textarea id="note_{{ m.user_id }}" name="note_{{ m.user_id }}" maxlength="3000">{{ m.note }}</textarea></div></section>{% endfor %}
+<div class="actions sticky"><button class="btn">Save evaluation</button></div></form>
+{% endif %}{% endblock %}

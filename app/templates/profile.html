@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% from "_m.html" import field, avatar %}
+{% block title %}Profile · {{ club_name }}{% endblock %}
+{% block content %}
+<section class="card narrow">
+  <div class="row">{{ avatar(current_user, 'lg') }}<div><h1>My profile</h1><p class="muted">{{ current_user.email }}</p></div></div>
+  {% for c in pending %}<p class="flash info">Waiting for admin approval: change {{ c.field|replace('_',' ') }} to “{{ c.new_value }}”.</p>{% endfor %}
+  <form method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {% for f in form if f.type != 'CSRFTokenField' %}{{ field(f) }}{% endfor %}
+    <div class="actions"><button class="btn">Save profile</button></div>
+  </form>
+</section>
+{% endblock %}

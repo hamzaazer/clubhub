@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% from "_m.html" import badge %}
+{% block content %}<h1>My tasks</h1><section class="card">
+{% for a in items %}<a class="item" href="{{ url_for('member.task', aid=a.id) }}"><span>{{ a.task.title }}{% if a.task.due_date %}<small class="muted"> · due {{ a.task.due_date.strftime('%d %b %Y') }}</small>{% endif %}</span>{{ badge(a.status) }}</a>
+{% else %}<p class="muted">No tasks yet.</p>{% endfor %}</section>{% endblock %}

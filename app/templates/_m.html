@@ -1,0 +1,14 @@
+{% macro csrf() %}<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">{% endmacro %}
+{% macro field(f) %}
+<div class="field{% if f.errors %} has-error{% endif %}">
+  {% if f.type == 'BooleanField' %}<label class="check">{{ f() }} <span>{{ f.label.text }}</span></label>
+  {% else %}{{ f.label }}{{ f() }}{% endif %}
+  {% if f.description %}<small>{{ f.description }}</small>{% endif %}
+  {% for e in f.errors %}<p class="err">{{ e }}</p>{% endfor %}
+</div>
+{% endmacro %}
+{% macro avatar(u, cls='') %}{% if u.has_image %}<img class="avatar {{ cls }}" src="{{ url_for('auth.avatar', uid=u.id, v=u.image_version) }}" alt="" loading="lazy">{% else %}<span class="avatar {{ cls }}">{{ u.full_name[:1]|upper }}</span>{% endif %}{% endmacro %}
+{% macro badge(status) %}<span class="badge {{ {'done':'ok','approved':'ok','in_progress':'warn','pending':'warn','open':'idle','rejected':'bad'}.get(status,'idle') }}">{{ status|replace('_',' ')|capitalize }}</span>{% endmacro %}
+{% macro post(url, label, cls='btn small ghost', confirm=None) %}
+<form method="post" action="{{ url }}" class="inline"{% if confirm %} data-confirm="{{ confirm }}"{% endif %}>{{ csrf() }}<button class="{{ cls }}">{{ label }}</button></form>
+{% endmacro %}

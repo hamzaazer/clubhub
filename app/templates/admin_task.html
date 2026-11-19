@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% from "_m.html" import avatar, badge, post %}
+{% block content %}
+<section class="card"><div class="row between"><h1>{{ t.title }}</h1>{{ post(url_for('admin.task_delete', tid=t.id), 'Delete', 'btn small danger', 'Delete this task and all replies?') }}</div>
+<p class="muted">Sent by {{ t.sender_name }}{% if t.due_date %} · due {{ t.due_date.strftime('%d %b %Y') }}{% endif %}</p><p class="pre">{{ t.description }}</p></section>
+{% for a in t.assignments %}<section class="card"><div class="row between"><span class="row">{{ avatar(a.user) }}<b>{{ a.user.full_name }}</b></span>{{ badge(a.status) }}</div>
+{% for r in a.responses %}<div class="msg"><small class="muted">{{ r.created_at.strftime('%d %b %Y, %H:%M') }} · {{ r.status|replace('_',' ') }}</small><p class="pre">{{ r.message }}</p></div>
+{% else %}<p class="muted">No reply yet.</p>{% endfor %}</section>{% endfor %}
+{% endblock %}

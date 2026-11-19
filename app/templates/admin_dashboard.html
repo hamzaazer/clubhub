@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% from "_m.html" import avatar, post %}
+{% block content %}<h1>Dashboard</h1>
+<div class="stats">
+  <a class="stat" href="{{ url_for('admin.members') }}"><b>{{ stats.members }}</b><span>Members</span></a>
+  <a class="stat" href="{{ url_for('admin.projects') if current_user.has_perm('manage_projects') else '#' }}"><b>{{ stats.projects }}</b><span>Projects</span></a>
+  <a class="stat" href="{{ url_for('admin.tasks') if current_user.has_perm('manage_tasks') else '#' }}"><b>{{ stats.tasks }}</b><span>Tasks</span></a>
+</div>
+{% if current_user.has_perm('approve_members') %}
+<section class="card"><h2>Registrations to review ({{ pending|length }})</h2>
+{% for u in pending %}<div class="item"><span class="row">{{ avatar(u) }}<span><b>{{ u.full_name }}</b><br><small class="muted">{{ u.email }} · {{ u.phone }}</small><br><small class="muted">{{ u.place_of_work }}{% if u.commune %} · {{ u.commune }}, Wilaya {{ u.wilaya }}{% endif %}</small>{% if u.equipment_list %}<br><small>Equipment: {{ u.equipment_list|join(', ') }}</small>{% endif %}</span></span>
+<span class="actions">{{ post(url_for('admin.decide_member', uid=u.id, action='approve'), 'Approve', 'btn small') }}{{ post(url_for('admin.decide_member', uid=u.id, action='reject'), 'Reject', 'btn small danger', 'Reject this registration?') }}</span></div>
+{% else %}<p class="muted">No pending registrations.</p>{% endfor %}</section>
+<section class="card"><h2>Name and email changes ({{ changes|length }})</h2>
+{% for c in changes %}<div class="item"><span><b>{{ c.user.full_name }}</b> wants to change <b>{{ c.field|replace('_',' ') }}</b><br><small class="muted">{{ c.user.full_name if c.field == 'full_name' else c.user.email }} → {{ c.new_value }}</small></span>
+<span class="actions">{{ post(url_for('admin.decide_change', cid=c.id, action='approve'), 'Approve', 'btn small') }}{{ post(url_for('admin.decide_change', cid=c.id, action='reject'), 'Reject', 'btn small danger') }}</span></div>
+{% else %}<p class="muted">No pending changes.</p>{% endfor %}</section>
+{% endif %}{% endblock %}

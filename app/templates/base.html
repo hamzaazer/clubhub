@@ -1,0 +1,42 @@
+{% from "_m.html" import csrf %}
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ club_name }}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head><body>
+<header class="top">
+  <a class="brand" href="{{ url_for('auth.index') }}">{% if club_logo_url %}<img class="club-logo" src="{{ club_logo_url }}" alt="">{% endif %}{{ club_name }}</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+  <label for="nav-toggle" class="burger" aria-hidden="true"><span></span></label>
+  <nav>
+  {% if current_user.is_authenticated %}
+    {% if current_user.role == 'member' %}
+      <a href="{{ url_for('member.dashboard') }}">Home</a>
+      <a href="{{ url_for('member.tasks') }}">Tasks</a>
+      <a href="{{ url_for('member.projects') }}">Projects</a>
+      <a href="{{ url_for('member.board') }}">Leaderboard</a>
+      <a href="{{ url_for('member.profile') }}">Profile</a>
+    {% else %}
+      <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('admin.members') }}">Members</a>
+      {% if current_user.has_perm('manage_projects') %}<a href="{{ url_for('admin.projects') }}">Projects</a>{% endif %}
+      {% if current_user.has_perm('manage_tasks') %}<a href="{{ url_for('admin.tasks') }}">Tasks</a>{% endif %}
+      <a href="{{ url_for('member.board') }}">Leaderboard</a>
+      {% if current_user.role == 'owner' %}<a href="{{ url_for('owner.admins') }}">Admins</a><a href="{{ url_for('owner.roles') }}">Club roles</a><a href="{{ url_for('owner.settings') }}">Settings</a>{% endif %}
+    {% endif %}
+    <a href="{{ url_for('member.password') }}">Password</a>
+    <form method="post" action="{{ url_for('auth.logout') }}" class="inline">{{ csrf() }}<button class="linkbtn">Log out</button></form>
+  {% else %}
+    <a href="{{ url_for('auth.login') }}">Log in</a>
+    <a class="btn small" href="{{ url_for('auth.register') }}">Join the club</a>
+  {% endif %}
+  </nav>
+</header>
+<main>
+  {% with msgs = get_flashed_messages(with_categories=true) %}{% for cat, m in msgs %}
+  <p class="flash {{ cat }}" role="status">{{ m }}</p>{% endfor %}{% endwith %}
+  {% block content %}{% endblock %}
+</main>
+</body></html>

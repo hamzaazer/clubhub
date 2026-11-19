@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% from "_m.html" import csrf, avatar %}
+{% block content %}<h1>Manage leaderboard</h1>
+<p class="muted">Points are the member's total marks plus bonus points. The first place you choose stays at #1.</p>
+<form method="post">{{ csrf() }}
+<section class="card"><div class="field"><label for="first_place">First place</label><select id="first_place" name="first_place">
+<option value="0">Automatic (highest points)</option>{% for r in rows %}<option value="{{ r.user.id }}"{% if first == r.user.id|string %} selected{% endif %}>{{ r.user.full_name }}</option>{% endfor %}</select></div></section>
+<section class="card">{% for r in rows %}<div class="item"><span class="row"><b class="pos">{{ r.rank }}</b>{{ avatar(r.user) }}<span>{{ r.user.full_name }}<br><small class="muted">{{ r.points|num }} pts</small></span></span>
+<label class="bonus">Bonus <input type="number" step="1" name="bonus_{{ r.user.id }}" value="{{ r.user.bonus_points or 0 }}"></label></div>
+{% else %}<p class="muted">No approved members yet.</p>{% endfor %}</section>
+<div class="actions"><button class="btn">Save leaderboard</button></div></form>{% endblock %}

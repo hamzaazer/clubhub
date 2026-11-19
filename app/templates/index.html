@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>{{ club_name }}</h1>
+  <p>Projects, tasks, marks and the leaderboard for our club members, all in one place.</p>
+  <p class="actions"><a class="btn" href="{{ url_for('auth.register') }}">Join the club</a><a class="btn ghost" href="{{ url_for('auth.login') }}">Log in</a></p>
+</section>
+{% endblock %}

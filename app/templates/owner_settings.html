@@ -1,0 +1,40 @@
+{% extends "base.html" %}{% from "_m.html" import field, post, csrf %}
+{% block title %}Settings · {{ club_name }}{% endblock %}
+{% block content %}
+<h1>Settings</h1>
+<section class="card narrow">
+  <h2>Club</h2>
+  <form method="post" action="{{ url_for('owner.settings') }}" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {{ field(form.club_name) }}
+    {% if has_club_logo %}<div class="field"><label>Current logo</label><img class="settings-logo" src="{{ club_logo_url }}" alt="Current club logo"></div>{% endif %}
+    {{ field(form.logo) }}
+    {% if has_club_logo %}{{ field(form.remove_logo) }}{% endif %}
+    <div class="actions"><button class="btn">Save</button></div>
+  </form>
+</section>
+<section class="card">
+  <h2>Global scoring criteria</h2>
+  <p class="muted">These criteria are shared across all projects. Changes apply to current and future projects.</p>
+  {% for criterion in global_criteria %}
+  <div class="item">
+    <form method="post" action="{{ url_for('owner.global_criterion_edit', criterion_id=criterion.id) }}" class="inline-form">
+      {{ csrf() }}
+      <div class="field"><label for="criterion_name_{{ criterion.id }}">Criterion</label><input id="criterion_name_{{ criterion.id }}" name="name" value="{{ criterion.name }}" maxlength="120" required></div>
+      <div class="field"><label for="criterion_max_{{ criterion.id }}">Maximum mark</label><input id="criterion_max_{{ criterion.id }}" name="max_mark" type="number" min="0.5" max="1000" step="0.5" value="{{ criterion.max_mark }}" required></div>
+      <div class="actions"><button class="btn small">Update</button></div>
+    </form>
+    {{ post(url_for('owner.global_criterion_delete', criterion_id=criterion.id), 'Remove', 'btn small danger', 'Remove this criterion from every project? It can only be removed when it has no saved marks.') }}
+  </div>
+  {% else %}<p class="muted">No global scoring criteria yet.</p>{% endfor %}
+</section>
+<section class="card narrow">
+  <h2>Add a global criterion</h2>
+  <form method="post" action="{{ url_for('owner.global_criterion_add') }}">
+    {{ criteria_form.hidden_tag() }}
+    {{ field(criteria_form.name) }}
+    {{ field(criteria_form.max_mark) }}
+    <div class="actions"><button class="btn">Add to all projects</button></div>
+  </form>
+</section>
+{% endblock %}

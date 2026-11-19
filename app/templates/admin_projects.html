@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}<div class="row between"><h1>Projects</h1><a class="btn" href="{{ url_for('admin.project_new') }}">New project</a></div>
+<section class="card">{% for p in projects %}<a class="item" href="{{ url_for('admin.project', pid=p.id) }}"><span>{{ p.title }}</span><small class="muted">{{ p.members|length }} participants</small></a>
+{% else %}<p class="muted">No projects yet. Create the first one.</p>{% endfor %}</section>{% endblock %}

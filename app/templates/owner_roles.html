@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% from "_m.html" import field, post %}
+{% block content %}
+<h1>Club roles</h1>
+<p class="muted">Create roles members can choose when they join or edit their profile.</p>
+<section class="card narrow">
+  <form method="post">
+    {{ form.hidden_tag() }}
+    {{ field(form.name) }}
+    <div class="actions"><button class="btn">Add role</button></div>
+  </form>
+</section>
+<section class="card">
+  {% for role in roles %}
+  <div class="item"><b>{{ role.name }}</b>{{ post(url_for('owner.role_delete', role_id=role.id), 'Remove', 'btn small danger', 'Remove this role? Members assigned to it will have no role.') }}</div>
+  {% else %}<p class="muted">No club roles yet. Add roles such as IT or Photographer.</p>{% endfor %}
+</section>
+{% endblock %}

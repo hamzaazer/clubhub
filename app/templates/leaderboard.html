@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% from "_m.html" import avatar %}
+{% block content %}<h1>Leaderboard</h1><section class="card">
+{% for r in rows %}<div class="item rank{% if r.rank == 1 %} first{% endif %}{% if r.user.id == current_user.id %} me{% endif %}">
+<span class="row"><b class="pos">{{ r.rank }}</b>{{ avatar(r.user) }}<span>{{ r.user.full_name }}</span></span><b>{{ r.points|num }} pts</b></div>
+{% else %}<p class="muted">No ranked members yet.</p>{% endfor %}</section>{% endblock %}

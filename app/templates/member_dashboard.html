@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% from "_m.html" import avatar, badge %}
+{% block content %}
+<div class="row">{{ avatar(current_user, 'lg') }}<h1>Hi, {{ current_user.full_name.split()[0] }}</h1></div>
+<div class="stats">
+  <a class="stat" href="{{ url_for('member.board') }}"><b>{% if rank %}#{{ rank.rank }}{% else %}–{% endif %}</b><span>Leaderboard{% if rank %} · {{ rank.points|num }} pts{% endif %}</span></a>
+  <a class="stat" href="{{ url_for('member.projects') }}"><b>{{ project_count }}</b><span>Projects</span></a>
+  <a class="stat" href="{{ url_for('member.tasks') }}"><b>{{ open_tasks|length }}</b><span>Open tasks</span></a>
+</div>
+<section class="card"><h2>Tasks waiting for you</h2>
+{% for a in open_tasks %}<a class="item" href="{{ url_for('member.task', aid=a.id) }}"><span>{{ a.task.title }}</span>{{ badge(a.status) }}</a>
+{% else %}<p class="muted">Nothing open. New tasks from admins appear here.</p>{% endfor %}</section>
+{% endblock %}

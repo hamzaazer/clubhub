@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}{% set t = pm.totals() %}
+<section class="card"><h1>{{ pm.project.title }}</h1><p class="pre">{{ pm.project.description }}</p></section>
+<section class="card"><h2>My marks{% if t[1] %} · {{ t[0]|num }} / {{ t[1]|num }}{% endif %}</h2>
+{% for c, m in pm.score_rows() %}<div class="item"><span>{{ c.name }}</span><b>{% if m is none %}not marked{% else %}{{ m|num }} / {{ c.max_mark|num }}{% endif %}</b></div>
+{% else %}<p class="muted">No scoring criteria yet.</p>{% endfor %}</section>
+<section class="card"><h2>My contribution</h2><p class="pre">{{ pm.contribution or 'Nothing recorded yet.' }}</p>
+<h2>Admin note</h2><p class="pre">{{ pm.note or 'No note yet.' }}</p></section>
+{% endblock %}

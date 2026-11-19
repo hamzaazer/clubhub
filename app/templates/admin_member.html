@@ -1,0 +1,16 @@
+{% extends "base.html" %}{% from "_m.html" import avatar, badge, post %}
+{% block content %}
+<section class="card" data-live-member data-live-url="{{ url_for('admin.member_live', uid=u.id) }}"><div class="row">{{ avatar(u, 'lg') }}<div><h1 data-live-field="full_name">{{ u.full_name }}</h1><span class="badge {{ {'approved':'ok','pending':'warn','rejected':'bad'}.get(u.status,'idle') }}" data-live-status>{{ u.status|replace('_',' ')|capitalize }}</span></div></div>
+<dl><dt>Club role</dt><dd data-live-field="member_title">{{ u.member_title or 'Not set' }}</dd><dt>Place of work</dt><dd data-live-field="place_of_work">{{ u.place_of_work or 'Not set' }}</dd><dt>Wilaya</dt><dd data-live-field="wilaya">{{ u.wilaya or 'Not set' }}</dd><dt>Commune</dt><dd data-live-field="commune">{{ u.commune or 'Not set' }}</dd><dt>Email</dt><dd data-live-field="email">{{ u.email }}</dd><dt>Phone</dt><dd data-live-field="phone">{{ u.phone }}</dd>
+<dt>Equipment</dt><dd data-live-field="equipment">{{ u.equipment_list|join(', ') or 'None listed' }}</dd>
+<dt>Leaderboard</dt><dd>{% if rank %}#{{ rank.rank }} · {{ rank.points|num }} pts{% else %}Not ranked{% endif %}</dd></dl>
+<div class="actions">
+{% if current_user.has_perm('approve_members') %}{{ post(url_for('admin.reset_password', uid=u.id), 'Reset password', 'btn small ghost', 'Generate a temporary password for this member?') }}{% endif %}
+{% if current_user.role == 'owner' %}{{ post(url_for('admin.delete_member', uid=u.id), 'Remove member', 'btn small danger', 'Permanently remove this member and all their data?') }}{% endif %}</div></section>
+<section class="card"><h2>Projects and marks</h2>
+{% for pm in parts %}{% set t = pm.totals() %}<div class="msg"><b>{{ pm.project.title }}</b>{% if t[1] %} · {{ t[0]|num }} / {{ t[1]|num }}{% endif %}
+{% for c, m in pm.score_rows() %}<div class="item"><span>{{ c.name }}</span><span>{% if m is none %}–{% else %}{{ m|num }} / {{ c.max_mark|num }}{% endif %}</span></div>{% endfor %}
+{% if pm.contribution %}<p class="pre"><small class="muted">Contribution:</small> {{ pm.contribution }}</p>{% endif %}{% if pm.note %}<p class="pre"><small class="muted">Note:</small> {{ pm.note }}</p>{% endif %}</div>
+{% else %}<p class="muted">Not in any project yet.</p>{% endfor %}</section>
+<section class="card"><h2>Tasks</h2>{% for a in tasks %}<div class="item"><span>{{ a.task.title }}</span>{{ badge(a.status) }}</div>{% else %}<p class="muted">No tasks sent.</p>{% endfor %}</section>
+{% endblock %}

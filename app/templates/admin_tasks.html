@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% from "_m.html" import badge %}
+{% block content %}<div class="row between"><h1>Tasks</h1><a class="btn" href="{{ url_for('admin.task_new') }}">Send a task</a></div>
+<section class="card">{% for t in tasks %}{% set done = t.assignments|selectattr('status','equalto','done')|list|length %}<a class="item" href="{{ url_for('admin.task', tid=t.id) }}"><span>{{ t.title }}</span><small class="muted">{{ done }}/{{ t.assignments|length }} done</small></a>
+{% else %}<p class="muted">No tasks sent yet.</p>{% endfor %}</section>{% endblock %}
