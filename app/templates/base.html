@@ -54,7 +54,7 @@
   {% block content %}{% endblock %}
 </main>
 <footer class="site-footer">
-  <div class="footer-inner"><div class="footer-brand"><strong dir="ltr">{{ club_name }}</strong><small lang="{{ 'ar' if current_language == 'ar' else 'en' }}" dir="{{ 'rtl' if current_language == 'ar' else 'ltr' }}">Photography &amp; Content Creation Club · Algeria</small></div>
+  <div class="footer-inner"><div class="footer-brand"><strong dir="ltr">{{ club_name }}</strong>{% if current_language != 'ar' %}<small lang="en" dir="ltr">Photography &amp; Content Creation Club · Algeria</small>{% endif %}<small lang="ar" dir="rtl">نادي التصوير وصناعة المحتوى · الجزائر</small></div>
     <nav class="social-links" aria-label="Social media">
       {% if social_links.instagram %}<a href="{{ social_links.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" class="solid"/></svg></a>{% endif %}
       {% if social_links.facebook %}<a href="{{ social_links.facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h1.7V1.4C17 1.2 16 1 14.5 1 11.5 1 10 2.8 10 6v3H7v4h3v8z" class="solid"/></svg></a>{% endif %}
