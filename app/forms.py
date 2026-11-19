@@ -126,6 +126,7 @@ class AdminForm(FlaskForm):
     manage_projects = BooleanField(PERMISSIONS["manage_projects"])
     manage_tasks = BooleanField(PERMISSIONS["manage_tasks"])
     manage_leaderboard = BooleanField(PERMISSIONS["manage_leaderboard"])
+    manage_settings = BooleanField(PERMISSIONS["manage_settings"])
 
     def __init__(self, *a, user_id=None, **k):
         super().__init__(*a, **k)

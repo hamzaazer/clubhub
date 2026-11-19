@@ -7,7 +7,7 @@ from . import db
 from .forms import AdminForm, ClubRoleForm, CriterionForm, SettingsForm
 from .models import (ClubRole, Criterion, GlobalCriterion, PERMISSIONS, Project, Score, User,
                      get_setting, set_setting)
-from .utils import process_logo, role_required
+from .utils import perm_required, process_logo, role_required
 
 bp = Blueprint("owner", __name__, url_prefix="/owner")
 
@@ -101,7 +101,7 @@ def admin_delete(uid):
 
 
 @bp.route("/settings", methods=["GET", "POST"])
-@role_required("owner")
+@perm_required("manage_settings")
 def settings():
     form = SettingsForm(club_name=get_setting("club_name", "ClubHub"))
     if form.validate_on_submit():
@@ -138,7 +138,7 @@ def club_logo():
 
 
 @bp.post("/settings/global-criteria")
-@role_required("owner")
+@perm_required("manage_settings")
 def global_criterion_add():
     form = CriterionForm()
     if form.validate_on_submit():
@@ -157,7 +157,7 @@ def global_criterion_add():
 
 
 @bp.post("/settings/global-criteria/<int:criterion_id>")
-@role_required("owner")
+@perm_required("manage_settings")
 def global_criterion_edit(criterion_id):
     global_criterion = db.get_or_404(GlobalCriterion, criterion_id)
     form = CriterionForm()
@@ -181,7 +181,7 @@ def global_criterion_edit(criterion_id):
 
 
 @bp.post("/settings/global-criteria/<int:criterion_id>/delete")
-@role_required("owner")
+@perm_required("manage_settings")
 def global_criterion_delete(criterion_id):
     global_criterion = db.get_or_404(GlobalCriterion, criterion_id)
     has_marks = (db.session.query(Score.id).join(Criterion, Criterion.id == Score.criterion_id)

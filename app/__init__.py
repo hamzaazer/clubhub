@@ -128,6 +128,7 @@ def create_app():
             "place_of_work": "VARCHAR(150) NOT NULL DEFAULT ''",
             "wilaya": "VARCHAR(2) NOT NULL DEFAULT ''",
             "commune": "VARCHAR(100) NOT NULL DEFAULT ''",
+            "manage_settings": "BOOLEAN NOT NULL DEFAULT FALSE",
         }
         with db.engine.begin() as connection:
             for name, declaration in new_columns.items():

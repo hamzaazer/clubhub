@@ -9,6 +9,7 @@ ARABIC = {
     "Dashboard": "لوحة التحكم",
     "Members": "الأعضاء",
     "Website": "الموقع",
+    "Manage club settings, branding and shared criteria": "إدارة إعدادات النادي وهويته ومعايير التقييم المشتركة",
     "Admins": "المشرفون",
     "Club roles": "أدوار النادي",
     "Settings": "الإعدادات",

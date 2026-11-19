@@ -12,6 +12,7 @@ PERMISSIONS = {
     "manage_projects": "Create projects, scoring criteria and marks",
     "manage_tasks": "Send tasks and read member replies",
     "manage_leaderboard": "Manage the leaderboard and first place",
+    "manage_settings": "Manage club settings, branding and shared criteria",
 }
 
 
@@ -44,6 +45,7 @@ class User(UserMixin, db.Model):
     manage_projects = db.Column(db.Boolean, default=False)
     manage_tasks = db.Column(db.Boolean, default=False)
     manage_leaderboard = db.Column(db.Boolean, default=False)
+    manage_settings = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     memberships = db.relationship("ProjectMember", back_populates="user", cascade="all, delete-orphan")

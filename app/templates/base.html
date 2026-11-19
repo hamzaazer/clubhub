@@ -25,7 +25,8 @@
       {% if current_user.has_perm('manage_projects') %}<a href="{{ url_for('admin.projects') }}">Projects</a>{% endif %}
       {% if current_user.has_perm('manage_tasks') %}<a href="{{ url_for('admin.tasks') }}">Tasks</a>{% endif %}
       <a href="{{ url_for('member.board') }}">Leaderboard</a>
-      {% if current_user.role == 'owner' %}<a href="{{ url_for('owner.admins') }}">Admins</a><a href="{{ url_for('owner.roles') }}">Club roles</a><a href="{{ url_for('owner.settings') }}">Settings</a>{% endif %}
+      {% if current_user.role == 'owner' %}<a href="{{ url_for('owner.admins') }}">Admins</a><a href="{{ url_for('owner.roles') }}">Club roles</a>{% endif %}
+      {% if current_user.has_perm('manage_settings') %}<a href="{{ url_for('owner.settings') }}">Settings</a>{% endif %}
     {% endif %}
     <a href="{{ url_for('member.password') }}">Password</a>
     <form method="post" action="{{ url_for('auth.logout') }}" class="inline">{{ csrf() }}<button class="linkbtn">Log out</button></form>
